@@ -1,14 +1,3 @@
-<!-- <template>
-  <router-view />
-</template>
-
-<script>
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  name: 'App'
-})
-</script> -->
 <template>
   <section>
     <router-view class="app-main" />
@@ -19,11 +8,8 @@ export default defineComponent({
 <script setup>
 import { onMounted } from "vue";
 import { storeToRefs } from "pinia";
-import { useRouter } from "vue-router";
-// import { useUserStore } from "./store/user.js";
-import { useUserStore } from "./stores/user.js";
+import { useUserStore } from "./stores/user";
 
-const router = useRouter();
 const userStore = useUserStore();
 const { user } = storeToRefs(userStore);
 
@@ -31,11 +17,12 @@ onMounted(async () => {
   try {
     await userStore.fetchUser(); // here we call fetch user
     if (!user.value) {
-      // redirect them to logout if the user is not there
-      router.push({ path: "/auth" });
+      console.log("no estás logeado");
+      await userStore.signUp("boris@randebrock.com", "password");
+      console.log(user.value);
     } else {
-      // continue to dashboard
-      router.push({ path: "/" });
+      console.log("estás logeado");
+      console.log(user.value);
     }
   } catch (e) {
     console.log(e);

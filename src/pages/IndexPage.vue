@@ -18,7 +18,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-q-page {
+.flex-center {
   display: flex;
   flex-direction: column;
 }
