@@ -6,7 +6,8 @@ const routes = [
   },
   {
     path: "/auth",
-    component: () => import("/src/components/Auth.vue"),
+    name: "auth",
+    component: () => import("src/components/AuthPage.vue"),
   },
 
   // Always leave this as last one,
