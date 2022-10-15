@@ -93,7 +93,9 @@ async function signIn() {
         </div>
       </q-form>
       <q-space></q-space>
-      <div class="already">Don't have an account? <a href="">Sign Up</a></div>
+      <div class="already">
+        Don't have an account? <a href="/auth">Sign Up</a>
+      </div>
     </div>
   </div>
 </template>
