@@ -11,63 +11,50 @@ const router = useRouter();
 const userStore = useUserStore();
 const { user, session } = storeToRefs(userStore);
 
+const name = ref(null);
 const email = ref(null);
 const password = ref(null);
-const confirmPassword = ref(null);
 const isPwd = ref(true);
-const isConfirmPwd = ref(true);
+const loading = ref(false);
 
-async function onSubmit() {
-  if (password.value !== confirmPassword.value) {
+function onReset() {
+  name.value = null;
+  email.value = null;
+  password.value = null;
+
+  isPwd.value = true;
+}
+
+async function signIn() {
+  if (!password.value) {
     $q.notify({
       color: "red-5",
       textColor: "white",
       icon: "warning",
-      message: "Passwords do not match.",
+      message: `Please sign in with your email and password.`,
     });
   } else {
     try {
-      await userStore.signUp(email.value, password.value);
-      if (user.value) {
-        $q.notify({
-          color: "green-4",
-          textColor: "white",
-          icon: "cloud_done",
-          message: "Submitted. Please check your inbox.",
-        });
+      loading.value = true;
+      await userStore.signIn(email.value, password.value);
 
-        onReset;
-        console.log(`user ${user.value} LOGGED IN`);
-        router.push({ path: "/auth" });
-      }
+      onReset(); // Reset the form
+      router.push({ path: "/home" });
     } catch (error) {
       console.log(error);
-
-      $q.notify({
-        color: "red-5",
-        textColor: "white",
-        icon: "warning",
-        message: `An error occurred: ${error}`,
-      });
+    } finally {
+      loading.value = false;
     }
   }
-}
-
-function onReset() {
-  email.value = null;
-  password.value = null;
-  confirmPassword.value = null;
-  isPwd.value = true;
-  isConfirmPwd.value = true;
 }
 </script>
 
 <template>
-  <div class="sign-up">
+  <div class="sign-up" style="margin: 0">
     <div class="q-pa-md">
-      <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md">
+      <q-form @submit="signIn" @reset="onReset" class="q-gutter-md">
         <q-input
-          label="please enter your email address"
+          label="e-mail"
           standout
           v-model="email"
           filled
@@ -80,7 +67,7 @@ function onReset() {
         </q-input>
 
         <q-input
-          label="create password"
+          label="password"
           v-model="password"
           filled
           :type="isPwd ? 'password' : 'text'"
@@ -95,25 +82,9 @@ function onReset() {
           </template>
         </q-input>
 
-        <q-input
-          label="confirm password"
-          v-model="confirmPassword"
-          filled
-          :type="isConfirmPwd ? 'password' : 'text'"
-          hint=""
-        >
-          <template v-slot:append>
-            <q-icon
-              :name="isConfirmPwd ? 'visibility_off' : 'visibility'"
-              class="cursor-pointer"
-              @click="isConfirmPwd = !isConfirmPwd"
-            />
-          </template>
-        </q-input>
-
         <div class="form-buttons">
           <q-btn
-            label="Create account"
+            label="Login"
             type="submit"
             style="background: #738580; color: white"
           />
@@ -122,7 +93,7 @@ function onReset() {
         </div>
       </q-form>
       <q-space></q-space>
-      <div class="already">Already have an account? <a href="">Sign In</a></div>
+      <div class="already">Don't have an account? <a href="">Sign Up</a></div>
     </div>
   </div>
 </template>
@@ -137,6 +108,7 @@ function onReset() {
 
 .form-buttons {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 
@@ -145,18 +117,8 @@ function onReset() {
   width: 50vw;
 }
 
-.form-buttons {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-}
-
 button.q-btn.q-btn-item.non-selectable.no-outline.q-btn--outline.q-btn--rectangle.q-btn--actionable.q-focusable.q-hoverable {
-  margin-top: 10px;
-}
-
-.q-space {
-  margin-top: 20px;
+  margin: 10px 0 25px;
 }
 
 .already {
