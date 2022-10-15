@@ -122,7 +122,9 @@ function onReset() {
         </div>
       </q-form>
       <q-space></q-space>
-      <div class="already">Already have an account? <a href="">Sign In</a></div>
+      <div class="already">
+        Already have an account? <a href="/signIn">Sign In</a>
+      </div>
     </div>
   </div>
 </template>
