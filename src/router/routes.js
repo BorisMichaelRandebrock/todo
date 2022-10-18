@@ -3,14 +3,16 @@ const routes = [
     path: "/",
     name: "home",
     component: () => import("layouts/MainLayout.vue"),
-    children: [{ path: "", component: () => import("pages/IndexPage.vue") }],
+    children: [
+      { path: "/home", component: () => import("pages/IndexPage.vue") },
+    ],
   },
   {
     path: "/auth",
     name: "auth",
     // component: () => import("layouts/AuthLayout.vue"),
     // children: [{ path: "", component: () => import("pages/AuthPage.vue") }],
-    component: () => import("src/components/AuthPage.vue"),
+    component: () => import("src/pages/AuthPage.vue"),
   },
 
   {
@@ -22,6 +24,12 @@ const routes = [
     //   { path: "", component: () => import("components/SignInPage.vue") },
     // ],
   },
+
+  // {
+  //   path: "/",
+  //   name: "index",
+  //   component: () => import("src/pages/IndexPage.vue"),
+  // },
 
   // {
   //   path: "/signIn",
