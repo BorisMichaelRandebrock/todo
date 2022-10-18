@@ -83,13 +83,9 @@ async function signIn() {
         </q-input>
 
         <div class="form-buttons">
-          <q-btn
-            label="Login"
-            type="submit"
-            style="background: #738580; color: white"
-          />
+          <q-btn class="first-form-button" label="Login" type="submit" />
 
-          <q-btn outline style="color: #738580" label="Reset" type="reset" />
+          <q-btn outline label="Reset" type="reset" />
         </div>
       </q-form>
       <q-space></q-space>
@@ -114,6 +110,10 @@ async function signIn() {
   justify-content: space-between;
 }
 
+.first-form-button {
+  background-color: blueviolet;
+  color: white;
+}
 .q-pa-md {
   padding: 16px 16px;
   width: 50vw;
