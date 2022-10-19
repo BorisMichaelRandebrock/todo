@@ -113,18 +113,15 @@ function onReset() {
 
         <div class="form-buttons">
           <q-btn
+            class="first-form-button"
             label="Create account"
             type="submit"
-            style="background: #738580; color: white"
           />
 
-          <q-btn outline style="color: #738580" label="Reset" type="reset" />
+          <q-btn outline label="Reset" type="reset" />
         </div>
       </q-form>
       <q-space></q-space>
-      <div class="already">
-        Already have an account? <a href="/signIn">Sign In</a>
-      </div>
     </div>
   </div>
 </template>
@@ -142,6 +139,10 @@ function onReset() {
   justify-content: space-between;
 }
 
+.first-form-button {
+  background-color: blueviolet;
+  color: white;
+}
 .q-pa-md {
   padding: 16px 16px;
   width: 50vw;

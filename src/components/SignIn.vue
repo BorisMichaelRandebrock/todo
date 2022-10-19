@@ -89,9 +89,6 @@ async function signIn() {
         </div>
       </q-form>
       <q-space></q-space>
-      <div class="already">
-        Don't have an account? <a href="/auth">Sign Up</a>
-      </div>
     </div>
   </div>
 </template>
@@ -114,6 +111,7 @@ async function signIn() {
   background-color: blueviolet;
   color: white;
 }
+
 .q-pa-md {
   padding: 16px 16px;
   width: 50vw;

@@ -204,7 +204,7 @@ async function goToSignOut() {
   $q.notify({
     color: "bg-deep-purple",
     textColor: "white",
-    icon: "done_all",
+    icon: "waving_hand",
     message: "you are logged out!",
   });
   router.push({ path: "/auth" });
