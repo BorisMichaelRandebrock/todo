@@ -1,7 +1,7 @@
 <script setup>
 import { useQuasar } from "quasar";
 import { ref, onMounted } from "vue";
-import { useUserStore } from "../stores/user";
+import { useUserStore } from "../../stores/user";
 import { storeToRefs } from "pinia";
 import { useRouter } from "vue-router";
 

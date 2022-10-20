@@ -1,122 +1,5 @@
-<!-- <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
-      <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
-
-        <q-toolbar-title> Quasar App </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
-      </q-toolbar>
-    </q-header>
-
-    <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
-      <q-list>
-        <q-item-label header> Essential Links </q-item-label>
-
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
-    </q-drawer>
-
-    <q-page-container>
-      <router-view />
-    </q-page-container>
-  </q-layout>
-</template>
-
-<script>
-import { defineComponent, ref } from "vue";
-import EssentialLink from "components/EssentialLink.vue";
-
-async function goToSignOut() {
-  try {
-    console.log(user.value);
-    await userStore.signOut();
-    console.log(user.value);
-    router.push({ path: "/" });
-  } catch (error) {
-    alert(error.error_description || error.message);
-  }
-}
-
-const linksList = [
-  {
-    title: "Docs",
-    caption: "quasar.dev",
-    icon: "school",
-    link: "https://quasar.dev",
-  },
-  {
-    title: "Github",
-    caption: "github.com/quasarframework",
-    icon: "code",
-    link: "https://github.com/quasarframework",
-  },
-  {
-    title: "Discord Chat Channel",
-    caption: "chat.quasar.dev",
-    icon: "chat",
-    link: "https://chat.quasar.dev",
-  },
-  {
-    title: "Forum",
-    caption: "forum.quasar.dev",
-    icon: "record_voice_over",
-    link: "https://forum.quasar.dev",
-  },
-  {
-    title: "Twitter",
-    caption: "@quasarframework",
-    icon: "rss_feed",
-    link: "https://twitter.quasar.dev",
-  },
-  {
-    title: "Facebook",
-    caption: "@QuasarFramework",
-    icon: "public",
-    link: "https://facebook.quasar.dev",
-  },
-  {
-    title: "Quasar Awesome",
-    caption: "Community Quasar projects",
-    icon: "favorite",
-    link: "https://awesome.quasar.dev",
-  },
-];
-
-export default defineComponent({
-  name: "MainLayout",
-
-  components: {
-    EssentialLink,
-  },
-
-  setup() {
-    const leftDrawerOpen = ref(false);
-
-    return {
-      essentialLinks: linksList,
-      leftDrawerOpen,
-      toggleLeftDrawer() {
-        leftDrawerOpen.value = !leftDrawerOpen.value;
-      },
-    };
-  },
-});
-</script> -->
 <template>
-  <q-layout view="hhh lpr fFf">
+  <q-layout view="hHr lpR fFf">
     <q-header
       reveal
       elevated
@@ -135,8 +18,6 @@ export default defineComponent({
       </q-toolbar>
 
       <q-tabs align="left">
-        <!-- <q-tab name="login" icon="login" label="Log in" />
-        <q-tab name="signup" icon="person" label="Sign up" /> -->
         <q-route-tab to="/IndexPage" label="Page One" />
         <q-route-tab to="/page2" label="Page Two" />
         <q-route-tab to="/page3" label="Page Three" />
@@ -146,9 +27,10 @@ export default defineComponent({
     <q-drawer
       v-model="rightDrawerOpen"
       side="right"
-      overlay
       behavior="mobile"
       elevated
+      overlay="false"
+      show-if-above=""
       style="display: flex; flex-direction: column"
     >
       <q-btn
@@ -176,6 +58,47 @@ export default defineComponent({
   </q-layout>
 </template>
 
+<!-- <template>
+  <q-layout view="hHr lpR fFf">
+    <q-header elevated class="bg-primary text-white" height-hint="98">
+      <q-toolbar>
+        <q-toolbar-title>
+          <q-avatar>
+            <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg" />
+          </q-avatar>
+          Title
+        </q-toolbar-title>
+
+        <q-btn dense flat round icon="menu" @click="toggleRightDrawer" />
+      </q-toolbar>
+
+      <q-tabs align="left">
+        <q-route-tab to="/page1" label="Page One" />
+        <q-route-tab to="/page2" label="Page Two" />
+        <q-route-tab to="/page3" label="Page Three" />
+      </q-tabs>
+    </q-header>
+
+    <q-drawer show-if-above v-model="rightDrawerOpen" side="right" elevated>
+    </q-drawer>
+
+    <q-page-container>
+      <router-view />
+    </q-page-container>
+
+    <q-footer elevated class="bg-grey-8 text-white">
+      <q-toolbar>
+        <q-toolbar-title>
+          <q-avatar>
+            <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg" />
+          </q-avatar>
+          <div>Title</div>
+        </q-toolbar-title>
+      </q-toolbar>
+    </q-footer>
+  </q-layout>
+</template> -->
+
 <script setup>
 import { ref } from "vue";
 import { useUserStore } from "src/stores/user";
@@ -187,16 +110,6 @@ const $q = useQuasar();
 const $userStore = useUserStore();
 const { user } = storeToRefs($userStore);
 const router = useRouter();
-
-// async function goToSignOut() {
-//   try {
-//     await $userStore.signOut();
-//     console.log("you are signed out", user.value);
-//     router.push({ path: "/" });
-//   } catch (error) {
-//     alert(error.error_description || error.message);
-//   }
-// }
 
 async function goToSignOut() {
   console.log($userStore);
@@ -223,8 +136,10 @@ const toggleRightDrawer = () => {
   display: flex;
   flex-direction: column;
 }
-/* .q-layout__section--marginal {
-  background: #673ab6;
-  color: #fff;
-} */
+
+.q-page-container {
+  padding: 0 !important;
+  height: 100vh;
+  margin: 0;
+}
 </style>

@@ -33,7 +33,7 @@ onMounted(async () => {
         message: "you are logged in!",
       });
       //   console.log(user.value);
-      router.push({ path: "/" });
+      router.push({ path: "/home" });
     }
   } catch (e) {
     console.log(e);
