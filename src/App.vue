@@ -22,12 +22,12 @@ onMounted(async () => {
     if (!user.value) {
       console.log("no estás logeado");
       router.push({ path: "/auth" });
-      await userStore.signUp("boris@randebrock.com", "password");
+      // await userStore.signUp("boris@randebrock.com", "password");
       // console.log(user.value);
     } else {
       console.log("estás logeado");
       $q.notify({
-        color: "bg-deep-purple",
+        color: "green-8",
         textColor: "white",
         icon: "done_all",
         message: "you are logged in!",

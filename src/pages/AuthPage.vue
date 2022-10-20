@@ -8,6 +8,9 @@ import HeaderPage from "../components/HeaderPage.vue";
 import SideDrawer from "../components/SideDrawer.vue";
 import FooterPage from "../components/FooterPage.vue";
 import { ref } from "vue";
+import { useQuasar } from "quasar";
+
+const $q = useQuasar();
 
 const SignedUp = ref(true);
 </script>
@@ -17,27 +20,37 @@ const SignedUp = ref(true);
   <SignUp v-else />
   <div v-if="SignedUp" class="already">
     Don't have an account?
-    <button @click="SignedUp = !SignedUp" class="signed-up-button">
+    <q-btn
+      @click="SignedUp = !SignedUp"
+      class="signed-up-button"
+      color="purple-6"
+      glossy=""
+    >
       Sign Up
-    </button>
+    </q-btn>
   </div>
   <div v-else class="already">
     Already have an account?
-    <button @click="SignedUp = !SignedUp" class="signed-up-button">
+    <q-btn
+      @click="SignedUp = !SignedUp"
+      color="purple-6"
+      glossy=""
+      class="signed-up-button"
+    >
       Sign In
-    </button>
+    </q-btn>
   </div>
   <MainLayout />
 </template>
 
 <style scoped>
 .signed-up-button {
-  background: #4526a0;
-  color: white;
   padding: 10px;
   border-radius: 5px;
   border: none;
   margin: 10px;
+  height: 25px;
+  justify-content: center;
 }
 
 .already {
