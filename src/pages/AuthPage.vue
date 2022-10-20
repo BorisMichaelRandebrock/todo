@@ -1,12 +1,12 @@
 <script setup>
 import SignUp from "src/components/SignUp.vue";
 import SignIn from "src/components/SignIn.vue";
-import MainLayout from "../layouts/MainLayout.vue";
+// import MainLayout from "../layouts/MainLayout.vue";
 import { defineComponent } from "vue";
 import { useRouter } from "vue-router";
-import HeaderPage from "../components/HeaderPage.vue";
-import SideDrawer from "../components/SideDrawer.vue";
-import FooterPage from "../components/FooterPage.vue";
+// import HeaderPage from "../components/bin/HeaderPage.vue";
+// import SideDrawer from "../components/SideDrawer.vue";
+// import FooterPage from "../components/bin/FooterPage.vue";
 import { ref } from "vue";
 import { useQuasar } from "quasar";
 
@@ -40,7 +40,7 @@ const SignedUp = ref(true);
       Sign In
     </q-btn>
   </div>
-  <MainLayout />
+  <!-- <MainLayout /> -->
 </template>
 
 <style scoped>

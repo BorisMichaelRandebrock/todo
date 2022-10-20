@@ -5,24 +5,20 @@ const routes = [
     component: () => import("layouts/MainLayout.vue"),
     children: [
       { path: "/home", component: () => import("pages/IndexPage.vue") },
+      { path: "/auth", component: () => import("pages/AuthPage.vue") },
     ],
   },
-  {
-    path: "/auth",
-    name: "auth",
-    // component: () => import("layouts/AuthLayout.vue"),
-    // children: [{ path: "", component: () => import("pages/AuthPage.vue") }],
-    component: () => import("src/pages/AuthPage.vue"),
-  },
+  // {
+  //   path: "/auth",
+  //   name: "auth",
+  //   component: () => import("src/pages/AuthPage.vue"),
+  //   children: [
+  // },
 
   {
     path: "/signIn",
     name: "signin",
     component: () => import("src/components/SignIn.vue"),
-    // component: () => import("layouts/MainLayout.vue"),
-    // children: [
-    //   { path: "", component: () => import("components/SignInPage.vue") },
-    // ],
   },
 
   // {
