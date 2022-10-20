@@ -153,7 +153,8 @@ export default defineComponent({
     >
       <q-btn
         @click="goToSignOut()"
-        style="background: #4526a0; color: white"
+        color="purple-6"
+        glossy=""
         label="Sign out"
       />
     </q-drawer>
@@ -202,7 +203,7 @@ async function goToSignOut() {
   $userStore.signOut();
   console.log("you are signed out", user.value);
   $q.notify({
-    color: "bg-deep-purple",
+    color: "purple-6",
     textColor: "white",
     icon: "waving_hand",
     message: "you are logged out!",
@@ -222,9 +223,8 @@ const toggleRightDrawer = () => {
   display: flex;
   flex-direction: column;
 }
-.q-layout__section--marginal {
-  /* background-color: var(--q-primary); */
+/* .q-layout__section--marginal {
   background: #673ab6;
   color: #fff;
-}
+} */
 </style>

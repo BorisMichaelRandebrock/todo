@@ -20,7 +20,7 @@ const isConfirmPwd = ref(true);
 async function onSubmit() {
   if (password.value !== confirmPassword.value) {
     $q.notify({
-      color: "red-5",
+      color: "red-6",
       textColor: "white",
       icon: "warning",
       message: "Passwords do not match.",
@@ -30,7 +30,7 @@ async function onSubmit() {
       await userStore.signUp(email.value, password.value);
       if (user.value) {
         $q.notify({
-          color: "green-4",
+          color: "green-6",
           textColor: "white",
           icon: "cloud_done",
           message: "Submitted. Please check your inbox.",
@@ -44,7 +44,7 @@ async function onSubmit() {
       console.log(error);
 
       $q.notify({
-        color: "red-5",
+        color: "red-6",
         textColor: "white",
         icon: "warning",
         message: `An error occurred: ${error}`,
@@ -116,6 +116,8 @@ function onReset() {
             class="first-form-button"
             label="Create account"
             type="submit"
+            color="purple-6"
+            glossy=""
           />
 
           <q-btn outline label="Reset" type="reset" />
@@ -139,10 +141,10 @@ function onReset() {
   justify-content: space-between;
 }
 
-.first-form-button {
+/* .first-form-button {
   background-color: blueviolet;
   color: white;
-}
+} */
 .q-pa-md {
   padding: 16px 16px;
   width: 50vw;

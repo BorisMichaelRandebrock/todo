@@ -28,7 +28,7 @@ function onReset() {
 async function signIn() {
   if (!password.value) {
     $q.notify({
-      color: "red-5",
+      color: "red-6",
       textColor: "white",
       icon: "warning",
       message: `Please sign in with your email and password.`,
@@ -83,7 +83,13 @@ async function signIn() {
         </q-input>
 
         <div class="form-buttons">
-          <q-btn class="first-form-button" label="Login" type="submit" />
+          <q-btn
+            class="first-form-button"
+            label="Login"
+            type="submit"
+            color="purple-6"
+            glossy=""
+          />
 
           <q-btn outline label="Reset" type="reset" />
         </div>
@@ -107,10 +113,10 @@ async function signIn() {
   justify-content: space-between;
 }
 
-.first-form-button {
+/* .first-form-button {
   background-color: blueviolet;
   color: white;
-}
+} */
 
 .q-pa-md {
   padding: 16px 16px;
