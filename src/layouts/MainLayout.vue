@@ -1,43 +1,79 @@
 <template>
   <q-layout view="hHr lpR fFf">
-    <q-header
-      reveal
-      elevated
-      class="bg-deep-purple text-white"
-      height-hint="98"
-    >
+    <q-header elevated class="bg-light-blue text-white" height-hint="98">
       <q-toolbar>
         <q-toolbar-title>
-          <q-avatar>
-            <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg" />
-          </q-avatar>
-          To do
+          <!-- <q-avatar class="avatar-container">
+            <img src="../../public/list.png" class="avatar" />
+          </q-avatar> -->
         </q-toolbar-title>
 
-        <q-btn dense flat round icon="menu" @click="toggleRightDrawer" />
+        <q-btn
+          dense
+          flat
+          round
+          icon="menu"
+          @click="toggleRightDrawer"
+          class="draw-toggler"
+        />
       </q-toolbar>
 
-      <q-tabs align="left">
+      <section class="q-px-lg q-pt-l q-mb-md">
+        <div class="text-h3">Todo</div>
+        <div class="text-subtitle1">{{ todaysDate() }}</div>
+      </section>
+      <q-img src="../../public/blueSky.jpg" class="header-img absolute-top" />
+      <!-- <q-tabs align="left">
         <q-route-tab to="/IndexPage" label="Page One" />
         <q-route-tab to="/page2" label="Page Two" />
         <q-route-tab to="/page3" label="Page Three" />
-      </q-tabs>
+      </q-tabs> -->
     </q-header>
 
     <q-drawer
+      class="q-pa-md smaller-drawer"
       v-model="rightDrawerOpen"
       side="right"
-      behavior="mobile"
+      overlay
+      behavior="desktop"
       elevated
-      overlay="false"
       show-if-above=""
-      style="display: flex; flex-direction: column"
     >
+      <div
+        class="q-img q-img--menu absolute-top"
+        role="img"
+        style="height: 148px"
+      >
+        <!-- <div style="padding-bottom: 82.5195%"></div> -->
+        <div class="q-img__container absolute-full">
+          <img
+            class="q-img__image q-img__image--with-transition q-img__image--loaded background-img"
+            loading="lazy"
+            fetchpriority="auto"
+            aria-hidden="true"
+            draggable="false"
+            src="../../public/blueSky.jpg"
+          />
+        </div>
+        <div class="q-img__content absolute-full q-anchor--skip">
+          <div class="absolute-bottom bg-transparent">
+            <div class="q-avatar q-mb-sm">
+              <div class="q-avatar__content row flex-center overflow-hidden">
+                <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
+              </div>
+            </div>
+            <div class="text-weight-bold">its me</div>
+            <div>boo@me.com</div>
+          </div>
+        </div>
+      </div>
+
       <q-btn
         @click="goToSignOut()"
         color="purple-6"
         glossy=""
         label="Sign out"
+        class="sign-out-button"
       />
     </q-drawer>
 
@@ -49,57 +85,16 @@
       <q-toolbar>
         <q-toolbar-title>
           <q-avatar>
-            <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg" />
+            <img src="../../public/list.png" />
           </q-avatar>
-          <div>Title</div>
         </q-toolbar-title>
       </q-toolbar>
     </q-footer>
   </q-layout>
 </template>
 
-<!-- <template>
-  <q-layout view="hHr lpR fFf">
-    <q-header elevated class="bg-primary text-white" height-hint="98">
-      <q-toolbar>
-        <q-toolbar-title>
-          <q-avatar>
-            <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg" />
-          </q-avatar>
-          Title
-        </q-toolbar-title>
-
-        <q-btn dense flat round icon="menu" @click="toggleRightDrawer" />
-      </q-toolbar>
-
-      <q-tabs align="left">
-        <q-route-tab to="/page1" label="Page One" />
-        <q-route-tab to="/page2" label="Page Two" />
-        <q-route-tab to="/page3" label="Page Three" />
-      </q-tabs>
-    </q-header>
-
-    <q-drawer show-if-above v-model="rightDrawerOpen" side="right" elevated>
-    </q-drawer>
-
-    <q-page-container>
-      <router-view />
-    </q-page-container>
-
-    <q-footer elevated class="bg-grey-8 text-white">
-      <q-toolbar>
-        <q-toolbar-title>
-          <q-avatar>
-            <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg" />
-          </q-avatar>
-          <div>Title</div>
-        </q-toolbar-title>
-      </q-toolbar>
-    </q-footer>
-  </q-layout>
-</template> -->
-
 <script setup>
+import { date } from "quasar";
 import { ref } from "vue";
 import { useUserStore } from "src/stores/user";
 import { storeToRefs } from "pinia";
@@ -110,6 +105,11 @@ const $q = useQuasar();
 const $userStore = useUserStore();
 const { user } = storeToRefs($userStore);
 const router = useRouter();
+
+const todaysDate = () => {
+  const timeStamp = Date.now();
+  return date.formatDate(timeStamp, "dddd D MMMM YYYY");
+};
 
 async function goToSignOut() {
   console.log($userStore);
@@ -132,14 +132,76 @@ const toggleRightDrawer = () => {
 </script>
 
 <style scoped>
+.avatar-container {
+  width: 40px;
+  height: 40px;
+  padding: 2px;
+  position: relative;
+  top: -2px;
+  right: 3px;
+  z-index: 100;
+}
+
+.background-img {
+  object-fit: cover;
+  object-position: 50% 50%;
+  z-index: 99;
+}
+.q-avatar .q-mb-sm {
+  font-size: 56px;
+}
+
+.smaller-drawer {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+}
+/* img.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: lightgrey;
+} */
+/* .avatar {
+  width: 30px;
+  height: 30px;
+} */
 .q-drawer__content.fit.scroll {
   display: flex;
   flex-direction: column;
 }
 
+.header-img {
+  height: 100%;
+  z-index: -1;
+  /* opacity: 0.2; */
+}
+
+header.q-header.q-layout__section--marginal.fixed-top.bg-deep-purple.text-white {
+  height: 150px;
+  display: grid;
+}
 .q-page-container {
   padding: 0 !important;
   height: 100vh;
   margin: 0;
+}
+
+.q-img__container.absolute-full {
+  height: 146px;
+}
+
+.sign-out-button {
+  top: 150px;
+}
+
+.draw-toggler {
+  position: relative;
+  top: 0px;
+  right: 96%;
+}
+
+aside.q-drawer.q-drawer--right.q-drawer--standard.fixed.q-drawer--on-top.q-drawer--top-padding {
+  width: 250px !important;
 }
 </style>
