@@ -43,12 +43,42 @@
         </div>
       </div>
 
+
+      <!-- <q-scroll-area style="height: calc(100% -150px); margin-top: 150px "> -->
+      <h3>scroll</h3>
+      <q-list>
+        <q-item clickable v-ripple>
+          <q-item-section>Todo
+          </q-item-section>
+          <q-item-section avatar>
+            <q-icon name="list" />
+          </q-item-section>
+        </q-item>
+        <q-item clickable v-ripple>
+          <q-item-section>Help
+          </q-item-section>
+          <q-item-section avatar>
+            <q-icon name="help" />
+          </q-item-section>
+        </q-item>
+        <!-- <q-item-label header>
+          Essential Links
+        </q-item-label> -->
+
+
+        <!-- <EssentialLink v-for="link in essentialLinks" :key="link.title" v-bind="link" /> -->
+      </q-list>
+
+      <!-- </q-scroll-area> -->
+
       <q-btn v-if="userMail" @click="goToSignOut()" color="purple-6" glossy="" label="Sign out"
         class="sign-out-button" />
     </q-drawer>
 
     <q-page-container>
       <router-view />
+      <!-- <keep-alive> -->
+      <!-- </keep-alive> -->
     </q-page-container>
 
     <q-footer reveal elevated class="bg-grey-4 text-white">
@@ -134,21 +164,6 @@ const toggleRightDrawer = () => {
   font-size: 56px;
 }
 
-/* .smaller-drawer {
-  width: 250px;
-  display: flex;
-  flex-direction: column;
-} */
-/* img.avatar {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: lightgrey;
-} */
-/* .avatar {
-  width: 30px;
-  height: 30px;
-} */
 .q-drawer__content.fit.scroll {
   display: flex;
   flex-direction: column;
@@ -175,7 +190,7 @@ header.q-header.q-layout__section--marginal.fixed-top.bg-deep-purple.text-white 
 }
 
 .sign-out-button {
-  top: 85vh;
+  top: 55vh;
 }
 
 .draw-toggler {

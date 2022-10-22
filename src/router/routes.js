@@ -6,6 +6,7 @@ const routes = [
     children: [
       { path: "/home", component: () => import("pages/IndexPage.vue") },
       { path: "/auth", component: () => import("pages/AuthPage.vue") },
+      { path: "/help", component: () => import("pages/HelpPage.vue") },
     ],
   },
   // {
@@ -15,11 +16,11 @@ const routes = [
   //   children: [
   // },
 
-  {
-    path: "/signIn",
-    name: "signin",
-    component: () => import("src/components/SignIn.vue"),
-  },
+  // {
+  //   path: "/signIn",
+  //   name: "signin",
+  //   component: () => import("src/components/SignIn.vue"),
+  // },
 
   // {
   //   path: "/",
