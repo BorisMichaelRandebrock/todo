@@ -25,7 +25,7 @@ onMounted(async () => {
       // await userStore.signUp("boris@randebrock.com", "password");
       // console.log(user.value);
     } else {
-      console.log("estás logeado");
+      // console.log("estás logeado");
       $q.notify({
         color: "green-8",
         textColor: "white",
