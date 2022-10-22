@@ -53,43 +53,20 @@ async function signIn() {
   <div class="sign-up" style="margin: 0">
     <div class="q-pa-md">
       <q-form @submit="signIn" @reset="onReset" class="q-gutter-md">
-        <q-input
-          label="e-mail"
-          standout
-          v-model="email"
-          filled
-          type="email"
-          hint=""
-        >
+        <q-input label="e-mail" standout v-model="email" filled type="email" hint="">
           <template v-slot:prepend>
             <q-icon name="mail" />
           </template>
         </q-input>
 
-        <q-input
-          label="password"
-          v-model="password"
-          filled
-          :type="isPwd ? 'password' : 'text'"
-          hint=""
-        >
+        <q-input label="password" v-model="password" filled :type="isPwd ? 'password' : 'text'" hint="">
           <template v-slot:append>
-            <q-icon
-              :name="isPwd ? 'visibility_off' : 'visibility'"
-              class="cursor-pointer"
-              @click="isPwd = !isPwd"
-            />
+            <q-icon :name="isPwd ? 'visibility_off' : 'visibility'" class="cursor-pointer" @click="isPwd = !isPwd" />
           </template>
         </q-input>
 
         <div class="form-buttons">
-          <q-btn
-            class="first-form-button"
-            label="Login"
-            type="submit"
-            color="purple-6"
-            glossy=""
-          />
+          <q-btn class="first-form-button" label="Login" type="submit" color="purple-6" glossy="" />
 
           <q-btn outline label="Reset" type="reset" />
         </div>
@@ -129,5 +106,13 @@ button.q-btn.q-btn-item.non-selectable.no-outline.q-btn--outline.q-btn--rectangl
 
 .already {
   text-align: center;
+}
+
+
+
+@media screen and (max-width: 600px) {
+  .q-pa-md {
+    width: 100vw;
+  }
 }
 </style>

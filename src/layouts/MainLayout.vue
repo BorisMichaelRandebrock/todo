@@ -23,8 +23,8 @@
       </q-tabs> -->
     </q-header>
 
-    <q-drawer class="q-pa-md smaller-drawer" v-model="rightDrawerOpen" side="right" overlay behavior="desktop" elevated
-      style="display: flex; flex-direction: column">
+    <q-drawer :width="250" class="q-pa-md smaller-drawer" v-model="rightDrawerOpen" side="right" overlay
+      behavior="desktop" elevated style="display: flex; flex-direction: column">
       <div class="q-img q-img--menu absolute-top" role="img" style="height: 148px">
         <!-- <div style="padding-bottom: 82.5195%"></div> -->
         <div class="q-img__container absolute-full">
@@ -175,7 +175,7 @@ header.q-header.q-layout__section--marginal.fixed-top.bg-deep-purple.text-white 
 }
 
 .sign-out-button {
-  top: 150px;
+  top: 85vh;
 }
 
 .draw-toggler {
@@ -188,4 +188,15 @@ header.q-header.q-layout__section--marginal.fixed-top.bg-deep-purple.text-white 
 /* aside.q-drawer.q-drawer--right.q-drawer--standard.fixed.q-drawer--on-top.q-drawer--top-padding {
   width: 250px !important;
 } */
+
+
+@media (max-width: 600px) {
+  .draw-toggler {
+    position: relative;
+    top: 0px;
+    right: 89%;
+    margin-left: 10px;
+  }
+
+}
 </style>
