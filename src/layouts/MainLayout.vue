@@ -4,18 +4,11 @@
       <q-toolbar>
         <q-toolbar-title>
           <!-- <q-avatar class="avatar-container">
-            <img src="../../public/list.png" class="avatar" />
+            <img src="../../public/" class="avatar" />
           </q-avatar> -->
         </q-toolbar-title>
 
-        <q-btn
-          dense
-          flat
-          round
-          icon="menu"
-          @click="toggleRightDrawer"
-          class="draw-toggler"
-        />
+        <q-btn dense flat round icon="menu" @click="toggleRightDrawer" class="draw-toggler" />
       </q-toolbar>
 
       <section class="q-px-lg q-pt-l q-mb-md">
@@ -30,30 +23,13 @@
       </q-tabs> -->
     </q-header>
 
-    <q-drawer
-      class="q-pa-md smaller-drawer"
-      v-model="rightDrawerOpen"
-      side="right"
-      overlay
-      behavior="desktop"
-      elevated
-      show-if-above=""
-    >
-      <div
-        class="q-img q-img--menu absolute-top"
-        role="img"
-        style="height: 148px"
-      >
+    <q-drawer class="q-pa-md smaller-drawer" v-model="rightDrawerOpen" side="right" overlay behavior="desktop" elevated
+      style="display: flex; flex-direction: column">
+      <div class="q-img q-img--menu absolute-top" role="img" style="height: 148px">
         <!-- <div style="padding-bottom: 82.5195%"></div> -->
         <div class="q-img__container absolute-full">
-          <img
-            class="q-img__image q-img__image--with-transition q-img__image--loaded background-img"
-            loading="lazy"
-            fetchpriority="auto"
-            aria-hidden="true"
-            draggable="false"
-            src="../../public/blueSky.jpg"
-          />
+          <img class="q-img__image q-img__image--with-transition q-img__image--loaded background-img" loading="lazy"
+            fetchpriority="auto" aria-hidden="true" draggable="false" src="/blueSky.jpg" />
         </div>
         <div class="q-img__content absolute-full q-anchor--skip">
           <div class="absolute-bottom bg-transparent">
@@ -62,19 +38,13 @@
                 <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
               </div>
             </div>
-            <div class="text-weight-bold">its me</div>
-            <div>boo@me.com</div>
+            <div class="text-weight-bold">{{ userMail }}</div>
           </div>
         </div>
       </div>
 
-      <q-btn
-        @click="goToSignOut()"
-        color="purple-6"
-        glossy=""
-        label="Sign out"
-        class="sign-out-button"
-      />
+      <q-btn v-if="userMail" @click="goToSignOut()" color="purple-6" glossy="" label="Sign out"
+        class="sign-out-button" />
     </q-drawer>
 
     <q-page-container>
@@ -85,7 +55,7 @@
       <q-toolbar>
         <q-toolbar-title>
           <q-avatar>
-            <img src="../../public/list.png" />
+            <img src="/list.png" />
           </q-avatar>
         </q-toolbar-title>
       </q-toolbar>
@@ -100,6 +70,7 @@ import { useUserStore } from "src/stores/user";
 import { storeToRefs } from "pinia";
 import { useRouter } from "vue-router";
 import { useQuasar } from "quasar";
+import { computed } from "vue";
 
 const $q = useQuasar();
 const $userStore = useUserStore();
@@ -110,6 +81,17 @@ const todaysDate = () => {
   const timeStamp = Date.now();
   return date.formatDate(timeStamp, "dddd D MMMM YYYY");
 };
+
+const userMail = computed(() => {
+  if (user.value) {
+    return user.value.email;
+  } else {
+    return "";
+  }
+  return user.value.email;
+});
+
+// const todoUser = () => ref(user.value.displayName);
 
 async function goToSignOut() {
   console.log($userStore);
@@ -147,15 +129,16 @@ const toggleRightDrawer = () => {
   object-position: 50% 50%;
   z-index: 99;
 }
+
 .q-avatar .q-mb-sm {
   font-size: 56px;
 }
 
-.smaller-drawer {
+/* .smaller-drawer {
   width: 250px;
   display: flex;
   flex-direction: column;
-}
+} */
 /* img.avatar {
   width: 30px;
   height: 30px;
@@ -174,13 +157,13 @@ const toggleRightDrawer = () => {
 .header-img {
   height: 100%;
   z-index: -1;
-  /* opacity: 0.2; */
 }
 
 header.q-header.q-layout__section--marginal.fixed-top.bg-deep-purple.text-white {
   height: 150px;
   display: grid;
 }
+
 .q-page-container {
   padding: 0 !important;
   height: 100vh;
@@ -199,9 +182,10 @@ header.q-header.q-layout__section--marginal.fixed-top.bg-deep-purple.text-white 
   position: relative;
   top: 0px;
   right: 96%;
+  margin-left: 10px;
 }
 
-aside.q-drawer.q-drawer--right.q-drawer--standard.fixed.q-drawer--on-top.q-drawer--top-padding {
+/* aside.q-drawer.q-drawer--right.q-drawer--standard.fixed.q-drawer--on-top.q-drawer--top-padding {
   width: 250px !important;
-}
+} */
 </style>
