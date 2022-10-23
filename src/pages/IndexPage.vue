@@ -1,11 +1,7 @@
 <template>
   <q-page class="flex flex-center">
     <h1>hello world</h1>
-    <img
-      alt="Quasar logo"
-      src="~assets/quasar-logo-vertical.svg"
-      style="width: 200px; height: 200px"
-    />
+    <img alt="Quasar logo" src="~assets/quasar-logo-vertical.svg" style="width: 200px; height: 200px" />
   </q-page>
 </template>
 
@@ -19,7 +15,6 @@ export default defineComponent({
 
 <style scoped>
 .flex-center {
-  display: flex;
   flex-direction: column;
 }
 </style>
