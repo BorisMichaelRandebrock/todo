@@ -114,7 +114,7 @@ const router = useRouter();
 
 const todaysDate = () => {
   const timeStamp = Date.now();
-  return date.formatDate(timeStamp, "dddd D MMMM YYYY");
+  return date.formatDate(timeStamp, "dddd D MMMM");
 };
 
 const userMail = computed(() => {
