@@ -1,6 +1,6 @@
 <template>
   <q-layout view="hHr lpR fFf">
-    <q-header elevated class="bg-light-blue text-white" height-hint="98">
+    <q-header elevated class="bg-light-blue text-indigo-10" height-hint="98">
       <q-toolbar>
         <q-toolbar-title>
           <!-- <q-avatar class="avatar-container">
@@ -10,11 +10,16 @@
 
         <q-btn dense flat round icon="menu" @click="toggleRightDrawer" class="draw-toggler" />
       </q-toolbar>
+      <span class="header-span">
 
-      <section class="q-px-lg q-pt-l q-mb-md">
-        <div class="text-h3">Todo</div>
-        <div class="text-subtitle1">{{ todaysDate() }}</div>
-      </section>
+        <section class="q-px-lg q-pt-l q-mb-md">
+          <div class="text-h3">Todo</div>
+          <div class="text-subtitle1">{{ todaysDate() }}</div>
+        </section>
+        <section>
+          <div class="text-weight-bold user-mail">{{ userMail }}</div>
+        </section>
+      </span>
       <q-img src="../../public/blueSky.jpg" class="header-img absolute-top" />
       <!-- <q-tabs align="left">
         <q-route-tab to="/IndexPage" label="Page One" />
@@ -38,7 +43,7 @@
                 <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
               </div>
             </div>
-            <div class="text-weight-bold">{{ userMail }}</div>
+            <div class="text-weight-bold text-indigo-10">{{ userMail }}</div>
           </div>
         </div>
       </div>
@@ -47,14 +52,14 @@
       <!-- <q-scroll-area style="height: calc(100% -150px); margin-top: 150px "> -->
       <h3>scroll</h3>
       <q-list>
-        <q-item clickable v-ripple>
+        <q-item to="/home" clickable v-ripple>
           <q-item-section>Todo
           </q-item-section>
           <q-item-section avatar>
             <q-icon name="list" />
           </q-item-section>
         </q-item>
-        <q-item clickable v-ripple>
+        <q-item to="/help" clickable v-ripple>
           <q-item-section>Help
           </q-item-section>
           <q-item-section avatar>
@@ -204,6 +209,24 @@ header.q-header.q-layout__section--marginal.fixed-top.bg-deep-purple.text-white 
   width: 250px !important;
 } */
 
+.header-span {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-mail {
+  margin-right: 25px;
+}
+
+.q-img__content>div {
+  pointer-events: all;
+  position: absolute;
+  padding: 0 16px 32px;
+  display: flex;
+  background: rgba(0, 0, 0, 0.47);
+  flex-direction: column;
+  align-items: center;
+}
 
 @media (max-width: 600px) {
   .draw-toggler {
