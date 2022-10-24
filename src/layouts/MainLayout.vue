@@ -237,7 +237,7 @@ header.q-header.q-layout__section--marginal.fixed-top.bg-deep-purple.text-white 
   }
 
   .sign-out-button {
-    top: 50vh;
+    top: 45vh;
   }
 
 }
