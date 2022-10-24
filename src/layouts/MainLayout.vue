@@ -51,7 +51,7 @@
 
       <!-- <q-scroll-area style="height: calc(100% -150px); margin-top: 150px "> -->
       <h3>scroll</h3>
-      <q-list>
+      <q-list v-if="userMail">
         <q-item to="/home" clickable v-ripple>
           <q-item-section>Todo
           </q-item-section>
@@ -234,6 +234,10 @@ header.q-header.q-layout__section--marginal.fixed-top.bg-deep-purple.text-white 
     top: 0px;
     right: 89%;
     margin-left: 10px;
+  }
+
+  .sign-out-button {
+    top: 50vh;
   }
 
 }
