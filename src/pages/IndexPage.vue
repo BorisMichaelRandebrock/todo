@@ -1,6 +1,18 @@
 <template>
   <q-page class="bg-blue-1 column main-body">
-    <div class="top-space"></div>
+    <div class="top-space">
+
+    </div>
+    <div class="row q-pa-sm add-task">
+      <q-input filled bottom-slots v-model="text" label="add task" bg-color="white" class="col" dense>
+
+
+
+        <template v-slot:append>
+          <q-btn round dense flat icon="add" />
+        </template>
+      </q-input>
+    </div>
     <q-list class="bg-white" separator bordered>
 
 
@@ -103,5 +115,16 @@ export default {
 .done {
   text-decoration: line-through;
   color: gray
+}
+
+.add-task {
+  height: 50px;
+  /* justify-content: baseline; */
+  align-items: center;
+  z-index: 999;
+  margin-bottom: 10px;
+
+  /* font-size: 20px;
+  font-weight: bold; */
 }
 </style>
