@@ -32,6 +32,7 @@ h2 {
 article {
   max-width: 800px;
   margin: 0 auto;
+  padding: 25px;
   line-height: 1.5;
   font-size: 1.2rem;
 }

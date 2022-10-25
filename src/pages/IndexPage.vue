@@ -54,7 +54,8 @@ export default {
         title: "Delete Task",
         message: "Are you sure you want to delete this task?",
         cancel: true,
-        bgColor: "blue-10",
+        color: "red-10",
+        bgColor: "green",
         persistent: true,
       }).onOk(() => {
         this.tasks.splice(index, 1);
@@ -78,24 +79,7 @@ export default {
   }
 };
 
-// const tasks = [
-//   {
-//     title: "get dog",
-//     done: false,
-//   },
-//   {
-//     title: "walk dog",
-//     done: false,
-//   },
-//   {
-//     title: "wash dog",
-//     done: false,
-//   },
-// ];
 
-// const deleteTask = (index) => {
-//   this.tasks.splice(index, 1)
-// }
 </script>
 
 <style scoped>
@@ -103,9 +87,6 @@ export default {
   height: 150px;
 }
 
-/* .flex-center {
-  flex-direction: column;
-} */
 .main-body {
   height: -webkit-fill-available;
 }

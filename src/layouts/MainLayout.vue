@@ -72,6 +72,12 @@
 
         <!-- <EssentialLink v-for="link in essentialLinks" :key="link.title" v-bind="link" /> -->
       </q-list>
+      <div v-else class="not-logged-draw">
+        <q-icon name="fingerprint" size="100px" color="blue-10" />
+        <div class="text-h6 text-blue-10">you are not logged in</div>
+
+
+      </div>
 
       <!-- </q-scroll-area> -->
 
@@ -233,6 +239,15 @@ header.q-header.q-layout__section--marginal.fixed-top.bg-deep-purple.text-white 
   align-items: center;
 }
 
+.not-logged-draw {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-around;
+  align-items: center;
+  height: 55%;
+  font-weight: 500;
+}
+
 @media (max-width: 600px) {
   .draw-toggler {
     position: relative;
@@ -246,6 +261,7 @@ header.q-header.q-layout__section--marginal.fixed-top.bg-deep-purple.text-white 
     /* top: 45vh; */
     top: 25px;
   }
+
 
 }
 </style>
