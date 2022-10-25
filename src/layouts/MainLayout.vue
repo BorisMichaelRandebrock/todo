@@ -3,9 +3,6 @@
     <q-header elevated class="bg-light-blue text-indigo-10" height-hint="98">
       <q-toolbar>
         <q-toolbar-title>
-          <!-- <q-avatar class="avatar-container">
-            <img src="../../public/" class="avatar" />
-          </q-avatar> -->
         </q-toolbar-title>
 
         <q-btn dense flat round icon="menu" @click="toggleRightDrawer" class="draw-toggler" />
@@ -21,15 +18,11 @@
         </section>
       </span>
       <q-img src="../../public/blueSky.jpg" class="header-img absolute-top" />
-      <!-- <q-tabs align="left">
-        <q-route-tab to="/IndexPage" label="Page One" />
-        <q-route-tab to="/page2" label="Page Two" />
-        <q-route-tab to="/page3" label="Page Three" />
-      </q-tabs> -->
+
     </q-header>
 
     <q-drawer :width="250" class="q-pa-md smaller-drawer" v-model="rightDrawerOpen" side="right" overlay
-      behavior="desktop" elevated style="display: flex; flex-direction: column">
+      behavior="desktop" elevated style="display: flex; flex-direction: column" @click="toggleRightDrawer">
       <div class="q-img q-img--menu absolute-top" role="img" style="height: 148px">
         <div class="q-img__container absolute-full">
           <img class="q-img__image q-img__image--with-transition q-img__image--loaded background-img" loading="lazy"
@@ -73,7 +66,7 @@
         <!-- <EssentialLink v-for="link in essentialLinks" :key="link.title" v-bind="link" /> -->
       </q-list>
       <div v-else class="not-logged-draw">
-        <q-icon name="fingerprint" size="100px" color="blue-10" />
+        <q-icon name="fingerprint" size="100px" color="blue-10" class="fingerprint-icon" />
         <div class="text-h6 text-blue-10">you are not logged in</div>
 
 
@@ -246,6 +239,10 @@ header.q-header.q-layout__section--marginal.fixed-top.bg-deep-purple.text-white 
   align-items: center;
   height: 55%;
   font-weight: 500;
+}
+
+.fingerprint-icon {
+  opacity: 0.5;
 }
 
 @media (max-width: 600px) {

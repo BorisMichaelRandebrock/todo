@@ -78,9 +78,44 @@ export default {
     }
   }
 };
-
-
 </script>
+
+<!-- <script setup>
+import { data } from "browserslist";
+import { defineComponent } from "vue";
+
+
+const newTask = ref("");
+const tasks = [];
+
+const deleteTask = (index) => {
+  this.$q.dialog({
+    title: "Delete Task",
+    message: "Are you sure you want to delete this task?",
+    cancel: true,
+    color: "red-10",
+    bgColor: "green",
+    persistent: true,
+  }).onOk(() => {
+    this.tasks.splice(index, 1);
+    this.$q.notify({
+      message: "Task deleted",
+      color: "negative",
+      icon: "delete",
+    });
+  });
+}
+
+const addTask = () => {
+  if (this.newTask) {
+    this.tasks.push({
+      title: this.newTask,
+      done: false,
+    });
+    this.newTask = "";
+  }
+}
+</script> -->
 
 <style scoped>
 .top-space {
@@ -98,13 +133,9 @@ export default {
 
 .add-task {
   height: 50px;
-  /* justify-content: baseline; */
   align-items: center;
   z-index: 999;
   margin-bottom: 10px;
-
-  /* font-size: 20px;
-  font-weight: bold; */
 }
 
 .q-card__section.q-card__section--vert.q-dialog__title {
