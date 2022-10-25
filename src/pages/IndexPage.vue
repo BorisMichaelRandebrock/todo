@@ -35,7 +35,7 @@
   </q-page>
 </template>
 
-<script>
+<!-- <script>
 import { data } from "browserslist";
 import { defineComponent } from "vue";
 
@@ -78,18 +78,21 @@ export default {
     }
   }
 };
-</script>
+</script> -->
 
-<!-- <script setup>
+<script setup>
+
 import { data } from "browserslist";
-import { defineComponent } from "vue";
+import { ref } from "vue";
+import { useQuasar } from "quasar";
 
 
 const newTask = ref("");
-const tasks = [];
+const tasks = ref([]);
+const $q = useQuasar();
 
 const deleteTask = (index) => {
-  this.$q.dialog({
+  $q.dialog({
     title: "Delete Task",
     message: "Are you sure you want to delete this task?",
     cancel: true,
@@ -97,8 +100,8 @@ const deleteTask = (index) => {
     bgColor: "green",
     persistent: true,
   }).onOk(() => {
-    this.tasks.splice(index, 1);
-    this.$q.notify({
+    tasks.value.splice(index, 1);
+    $q.notify({
       message: "Task deleted",
       color: "negative",
       icon: "delete",
@@ -107,15 +110,15 @@ const deleteTask = (index) => {
 }
 
 const addTask = () => {
-  if (this.newTask) {
-    this.tasks.push({
-      title: this.newTask,
+  if (newTask.value) {
+    tasks.value.push({
+      title: newTask.value,
       done: false,
     });
-    this.newTask = "";
+    newTask.value = "";
   }
 }
-</script> -->
+</script>
 
 <style scoped>
 .top-space {
