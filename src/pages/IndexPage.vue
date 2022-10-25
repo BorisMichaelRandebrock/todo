@@ -50,7 +50,20 @@ export default {
   },
   methods: {
     deleteTask(index) {
-      this.tasks.splice(index, 1);
+      this.$q.dialog({
+        title: "Delete Task",
+        message: "Are you sure you want to delete this task?",
+        cancel: true,
+        persistent: true,
+      }).onOk(() => {
+        this.tasks.splice(index, 1);
+        this.$q.notify({
+          message: "Task deleted",
+          color: "negative",
+          icon: "delete",
+        });
+      });
+
     }
   }
 };
