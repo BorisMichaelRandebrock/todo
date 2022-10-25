@@ -31,7 +31,6 @@
     <q-drawer :width="250" class="q-pa-md smaller-drawer" v-model="rightDrawerOpen" side="right" overlay
       behavior="desktop" elevated style="display: flex; flex-direction: column">
       <div class="q-img q-img--menu absolute-top" role="img" style="height: 148px">
-        <!-- <div style="padding-bottom: 82.5195%"></div> -->
         <div class="q-img__container absolute-full">
           <img class="q-img__image q-img__image--with-transition q-img__image--loaded background-img" loading="lazy"
             fetchpriority="auto" aria-hidden="true" draggable="false" src="/blueSky.jpg" />
@@ -81,9 +80,15 @@
     </q-drawer>
 
     <q-page-container>
-      <router-view />
-      <!-- <keep-alive> -->
-      <!-- </keep-alive> -->
+      <!-- <KeepAlive>
+
+      </KeepAlive> -->
+      <!-- <router-view /> -->
+      <router-view v-slot="{ Component }">
+        <component :is="Component" />
+        <keep-alive>
+        </keep-alive>
+      </router-view>
     </q-page-container>
 
     <q-footer reveal elevated class="bg-grey-4 text-white">
@@ -237,7 +242,9 @@ header.q-header.q-layout__section--marginal.fixed-top.bg-deep-purple.text-white 
   }
 
   .sign-out-button {
-    top: 45vh;
+    position: relative;
+    /* top: 45vh; */
+    top: 25px;
   }
 
 }

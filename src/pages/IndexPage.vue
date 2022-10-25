@@ -1,7 +1,7 @@
 <template>
   <q-page class="bg-blue-1 column main-body">
     <div class="top-space"></div>
-    <q-list class="bg-white" separator bordered="1px">
+    <q-list class="bg-white" separator bordered>
 
 
       <q-item v-for="(task, index) in tasks" :key="task.title" @click="task.done =!task.done"
