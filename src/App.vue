@@ -23,7 +23,7 @@ onMounted(async () => {
       console.log("no estás logeado");
       router.push({ path: "/auth" });
       // await userStore.signUp("boris@randebrock.com", "password");
-      // console.log(user.value);
+      // console.log(user.value); supabase.from.select.eq()
     } else {
       // console.log("estás logeado");
       $q.notify({
