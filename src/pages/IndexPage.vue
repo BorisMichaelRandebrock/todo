@@ -27,6 +27,11 @@
         </q-item-section>
       </q-item>
     </q-list>
+    <div v-if="!tasks.length" class="no-tasks absolute-center">
+      <q-icon name="check" size="100px" color="blue-10" />
+      <div class="text-h5 text-blue-10">No tasks</div>
+
+    </div>
   </q-page>
 </template>
 
@@ -35,7 +40,6 @@ import { data } from "browserslist";
 import { defineComponent } from "vue";
 
 export default {
-  // name: "IndexPage",
 
   data() {
     return {
@@ -124,5 +128,10 @@ export default {
 
 .q-card__section.q-card__section--vert.q-dialog__title {
   background-color: blue;
+}
+
+.no-tasks {
+  opacity: 0.5;
+
 }
 </style>
