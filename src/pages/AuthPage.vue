@@ -16,23 +16,13 @@ const SignedUp = ref(true);
   <SignUp v-else />
   <div v-if="SignedUp" class="already">
     Don't have an account?
-    <q-btn
-      @click="SignedUp = !SignedUp"
-      class="signed-up-button"
-      color="purple-6"
-      glossy=""
-    >
+    <q-btn @click="SignedUp = !SignedUp" class="signed-up-button" color="purple-6" glossy="">
       Sign Up
     </q-btn>
   </div>
   <div v-else class="already">
     Already have an account?
-    <q-btn
-      @click="SignedUp = !SignedUp"
-      color="purple-6"
-      glossy=""
-      class="signed-up-button"
-    >
+    <q-btn @click="SignedUp = !SignedUp" color="purple-6" glossy="" class="signed-up-button">
       Sign In
     </q-btn>
   </div>
@@ -53,6 +43,6 @@ const SignedUp = ref(true);
   display: flex;
   justify-content: center;
   position: relative;
-  top: -212px;
+  top: -200px;
 }
 </style>
