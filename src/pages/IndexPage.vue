@@ -4,18 +4,15 @@
 
     </div>
     <div class="row q-pa-sm add-task">
-      <q-input filled bottom-slots v-model="text" label="add task" bg-color="white" class="col" dense>
 
-
-
+      <q-input filled bottom-slots v-model="newTask" label="add task" bg-color="white" class="col" dense
+        @keyup.enter="addTask">
         <template v-slot:append>
-          <q-btn round dense flat icon="add" />
+          <q-btn @click="addTask" round dense flat icon="add" />
         </template>
       </q-input>
     </div>
     <q-list class="bg-white" separator bordered>
-
-
       <q-item v-for="(task, index) in tasks" :key="task.title" @click="task.done =!task.done"
         :class="{ 'done bg-blue-2' :task.done }" clickable="" v-ripple>
         <q-item-section avatar>
@@ -29,8 +26,6 @@
           <q-btn flat round icon="delete" color="blue-10" @click.stop="deleteTask(index)" />
         </q-item-section>
       </q-item>
-
-
     </q-list>
   </q-page>
 </template>
@@ -44,19 +39,8 @@ export default {
 
   data() {
     return {
+      newTask: "",
       tasks: [
-        {
-          title: "get dog",
-          done: false,
-        },
-        {
-          title: "walk dog",
-          done: false,
-        },
-        {
-          title: "wash dog",
-          done: false,
-        },
       ]
     };
   },
@@ -66,6 +50,7 @@ export default {
         title: "Delete Task",
         message: "Are you sure you want to delete this task?",
         cancel: true,
+        bgColor: "blue-10",
         persistent: true,
       }).onOk(() => {
         this.tasks.splice(index, 1);
@@ -76,6 +61,15 @@ export default {
         });
       });
 
+    },
+    addTask() {
+      if (this.newTask) {
+        this.tasks.push({
+          title: this.newTask,
+          done: false,
+        });
+        this.newTask = "";
+      }
     }
   }
 };
@@ -126,5 +120,9 @@ export default {
 
   /* font-size: 20px;
   font-weight: bold; */
+}
+
+.q-card__section.q-card__section--vert.q-dialog__title {
+  background-color: blue;
 }
 </style>
