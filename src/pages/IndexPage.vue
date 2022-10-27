@@ -14,7 +14,7 @@
       <!-- <AddTaskComponent /> -->
     </div>
     <q-list class="bg-white" separator bordered>
-      <q-item v-for="(task, index) in tasks" :key="task.title" @click="task.is_complete =!task.is_complete"
+      <q-item v-for="(task) in tasks" :key="task.title" @click="task.is_complete =!task.is_complete"
         :class="{ 'done bg-blue-2' :task.is_complete }" clickable="" v-ripple>
         <q-item-section avatar>
           <q-checkbox v-model="task.is_complete" class="no-pointer-event" color="blue-10" />
@@ -24,7 +24,7 @@
         </q-item-section>
 
         <q-item-section v-if="task.is_complete" side>
-          <q-btn flat round icon="delete" color="blue-10" @click.stop="deleteTask(index)" />
+          <q-btn flat round icon="delete" color="blue-10" @click.stop="deleteTask(task.id)" />
         </q-item-section>
       </q-item>
     </q-list>
@@ -67,7 +67,8 @@ const id = userStore.user.id;
 taskStore.fetchTasks(id);
 
 
-const deleteTask = (index) => {
+const deleteTask = (id) => {
+
   $q.dialog({
     title: "Delete Task",
     message: "Are you sure you want to delete this task?",
@@ -75,8 +76,10 @@ const deleteTask = (index) => {
     color: "red-10",
     bgColor: "green",
     persistent: true,
-  }).onOk(() => {
-    tasks.value.splice(index, 1);
+  }).onOk(async () => {
+    // tasks.value.splice(index, 1);
+    await taskStore.deleteTask(id);
+    await taskStore.fetchTasks(userStore.user.id);
     $q.notify({
       message: "Task deleted",
       color: "negative",
@@ -85,40 +88,6 @@ const deleteTask = (index) => {
   });
 }
 
-// const createTask = async () => {
-// user_id: user.value.id;
-// title: title;
-// is_complete: false;
-// inserted_at: new Date();
-// try {
-//   const response = await taskStore.createTask(addTask);
-//   await taskStore.fetchTasks();
-//   title.value = '';
-
-//   console.log(response);
-//   $q.notify({
-//     color: "green-5",
-//     textColor: "white",
-//     icon: "add_task",
-//     message: "new task submitted.",
-//   });
-// } catch (error) {
-//   console.log(error);
-//   $q.notify({
-//     color: "red-5",
-//     textColor: "white",
-//     icon: "error",
-//     message: "error submitting task.",
-//   });
-// }
-// if (newTask.value) {
-//   tasks.value.push({
-//     title: newTask.value,
-//     done: false,
-//   });
-//   newTask.value = "";
-// }
-// }
 
 const addTask = async () => {
 
