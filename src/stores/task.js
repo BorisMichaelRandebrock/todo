@@ -16,7 +16,7 @@ export const useTaskStore = defineStore("tasks", {
         .from("tasks")
         .select("*")
         .eq("user_id", id)
-        .order("id", { ascending: false });
+        .order("id", { ascending: true });
       this.tasks = tasks;
     },
 
@@ -29,7 +29,40 @@ export const useTaskStore = defineStore("tasks", {
           inserted_at: newTask.inserted_at,
         });
         if (error) throw error;
-        // this.tasks.push({ user_id: newTask.user_id, title: newTask.value });
+      } catch (error) {
+        $q.notify({
+          message: error.message,
+          color: "negative",
+          position: "top",
+          icon: "report_problem",
+        });
+      }
+    },
+
+    async updateTask(id, isComplete) {
+      try {
+        const { data, error } = await supabase
+          .from("tasks")
+          .update({ is_complete: isComplete })
+          .eq("id", id);
+        if (error) throw error;
+      } catch (error) {
+        $q.notify({
+          message: error.message,
+          color: "negative",
+          position: "top",
+          icon: "report_problem",
+        });
+      }
+    },
+
+    async deleteTask(id) {
+      try {
+        const { data, error } = await supabase
+          .from("tasks")
+          .delete()
+          .eq("id", id);
+        if (error) throw error;
       } catch (error) {
         $q.notify({
           message: error.message,

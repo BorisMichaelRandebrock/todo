@@ -20,7 +20,6 @@ onMounted(async () => {
   try {
     await userStore.fetchUser(); // here we call fetch user
     if (!user.value) {
-      console.log("no estás logeado");
       router.push({ path: "/auth" });
       // await userStore.signUp("boris@randebrock.com", "password");
       // console.log(user.value); supabase.from.select.eq()
