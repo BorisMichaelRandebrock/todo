@@ -11,18 +11,19 @@
           <q-btn @click="addTask" round dense flat icon="add" />
         </template>
       </q-input>
+      <!-- <AddTaskComponent /> -->
     </div>
     <q-list class="bg-white" separator bordered>
-      <q-item v-for="(task, index) in tasks" :key="task.title" @click="task.done =!task.done"
-        :class="{ 'done bg-blue-2' :task.done }" clickable="" v-ripple>
+      <q-item v-for="(task, index) in tasks" :key="task.title" @click="task.is_complete =!task.is_complete"
+        :class="{ 'done bg-blue-2' :task.is_complete }" clickable="" v-ripple>
         <q-item-section avatar>
-          <q-checkbox v-model="task.done" class="no-pointer-event" color="blue-10" />
+          <q-checkbox v-model="task.is_complete" class="no-pointer-event" color="blue-10" />
         </q-item-section>
         <q-item-section>
           <q-item-label>{{ task.title }}</q-item-label>
         </q-item-section>
 
-        <q-item-section v-if="task.done" side>
+        <q-item-section v-if="task.is_complete" side>
           <q-btn flat round icon="delete" color="blue-10" @click.stop="deleteTask(index)" />
         </q-item-section>
       </q-item>
@@ -35,61 +36,36 @@
   </q-page>
 </template>
 
-<!-- <script>
-import { data } from "browserslist";
-import { defineComponent } from "vue";
 
-export default {
-
-  data() {
-    return {
-      newTask: "",
-      tasks: [
-      ]
-    };
-  },
-  methods: {
-    deleteTask(index) {
-      this.$q.dialog({
-        title: "Delete Task",
-        message: "Are you sure you want to delete this task?",
-        cancel: true,
-        color: "red-10",
-        bgColor: "green",
-        persistent: true,
-      }).onOk(() => {
-        this.tasks.splice(index, 1);
-        this.$q.notify({
-          message: "Task deleted",
-          color: "negative",
-          icon: "delete",
-        });
-      });
-
-    },
-    addTask() {
-      if (this.newTask) {
-        this.tasks.push({
-          title: this.newTask,
-          done: false,
-        });
-        this.newTask = "";
-      }
-    }
-  }
-};
-</script> -->
 
 <script setup>
 
+import { useUserStore } from '../stores/user.js'
+import { useTaskStore } from '../stores/task'
+import { supabase } from '../supabase';
+import { onMounted, computed } from 'vue'
 import { data } from "browserslist";
 import { ref } from "vue";
 import { useQuasar } from "quasar";
+import { storeToRefs } from 'pinia'
+
 
 
 const newTask = ref("");
-const tasks = ref([]);
 const $q = useQuasar();
+
+// import AddTaskComponent from '../components/AddTaskComponent.vue'
+
+
+const title = ref("");
+
+const userStore = useUserStore()
+const taskStore = useTaskStore()
+const { user } = storeToRefs(userStore)
+const tasks = computed(() => taskStore.tasks);
+const id = userStore.user.id;
+taskStore.fetchTasks(id);
+
 
 const deleteTask = (index) => {
   $q.dialog({
@@ -109,15 +85,72 @@ const deleteTask = (index) => {
   });
 }
 
-const addTask = () => {
-  if (newTask.value) {
-    tasks.value.push({
-      title: newTask.value,
-      done: false,
+// const createTask = async () => {
+// user_id: user.value.id;
+// title: title;
+// is_complete: false;
+// inserted_at: new Date();
+// try {
+//   const response = await taskStore.createTask(addTask);
+//   await taskStore.fetchTasks();
+//   title.value = '';
+
+//   console.log(response);
+//   $q.notify({
+//     color: "green-5",
+//     textColor: "white",
+//     icon: "add_task",
+//     message: "new task submitted.",
+//   });
+// } catch (error) {
+//   console.log(error);
+//   $q.notify({
+//     color: "red-5",
+//     textColor: "white",
+//     icon: "error",
+//     message: "error submitting task.",
+//   });
+// }
+// if (newTask.value) {
+//   tasks.value.push({
+//     title: newTask.value,
+//     done: false,
+//   });
+//   newTask.value = "";
+// }
+// }
+
+const addTask = async () => {
+
+  try {
+    await taskStore.createTask(
+      {
+        user_id: user.value.id,
+        title: newTask.value,
+        is_complete: false,
+        inserted_at: new Date(),
+      }
+    );
+    await taskStore.fetchTasks(id);
+    newTask.value = '';
+    $q.notify({
+      color: "green-5",
+      textColor: "white",
+      icon: "add_task",
+      message: "new task submitted.",
     });
-    newTask.value = "";
+  } catch (error) {
+    $q.notify({
+      color: "red-5",
+      textColor: "white",
+      icon: "error",
+      message: "error submitting task.",
+    });
   }
 }
+
+
+
 </script>
 
 <style scoped>
@@ -137,13 +170,9 @@ const addTask = () => {
 .add-task {
   height: 50px;
   align-items: center;
-  z-index: 999;
   margin-bottom: 10px;
 }
 
-.q-card__section.q-card__section--vert.q-dialog__title {
-  background-color: blue;
-}
 
 .no-tasks {
   opacity: 0.5;
