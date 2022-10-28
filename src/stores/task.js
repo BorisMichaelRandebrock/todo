@@ -41,7 +41,10 @@ export const useTaskStore = defineStore("tasks", {
       try {
         const { data, error } = await supabase
           .from("tasks")
-          .update({ is_complete: isComplete ? false : true })
+          .update({ is_complete: true })
+          // .update({ is_complete: isComplete === false ? true : false })
+          // .update({ is_complete: isComplete === true ? false : true })
+          // .update({ is_complete: false }) this one not
           .eq("id", id);
         if (error) throw error;
       } catch (error) {
