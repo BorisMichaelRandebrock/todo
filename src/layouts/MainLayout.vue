@@ -133,14 +133,14 @@ const userMail = computed(() => {
 // const todoUser = () => ref(user.value.displayName);
 
 async function goToSignOut() {
-  console.log($userStore);
+  // console.log($userStore);
   $userStore.signOut();
-  console.log("you are signed out", user.value);
+  // console.log("you are signed out", user.value);
   $q.notify({
     color: "purple-6",
     textColor: "white",
     icon: "waving_hand",
-    message: "you are logged out!",
+    message: `See you soon, ${user.value.email}`,
   });
   router.push({ path: "/auth" });
 }

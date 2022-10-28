@@ -1,5 +1,8 @@
 import { defineStore } from "pinia";
 import { supabase } from "../supabase";
+import { useQuasar } from "quasar";
+
+const $q = useQuasar();
 
 export const useUserStore = defineStore("user", {
   state: () => ({
@@ -37,14 +40,22 @@ export const useUserStore = defineStore("user", {
         this.user = null;
         localStorage.removeItem("persist:supabase");
       } catch (error) {
-        console.log(error);
+        // console.log(error);
+        $q.notify({
+          type: "negative",
+          message: "Error signing out",
+        });
       }
     },
 
     async stateChange() {
       await supabase.auth.onAuthStateChange((event, session) => {
-        alert("hello");
-        console.log(event, session);
+        $q.notify({
+          type: "positive",
+          message: "Signed in",
+        });
+        // alert("hello");
+        // console.log(event, session);
       });
     },
   },
