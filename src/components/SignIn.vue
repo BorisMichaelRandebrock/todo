@@ -37,6 +37,12 @@ async function signIn() {
     try {
       loading.value = true;
       await userStore.signIn(email.value, password.value);
+      $q.notify({
+        color: "green-6",
+        textColor: "white",
+        icon: "waving_hand",
+        message: `Welcome back, ${email.value}!`,
+      });
 
       onReset(); // Reset the form
       router.push({ path: "/home" });

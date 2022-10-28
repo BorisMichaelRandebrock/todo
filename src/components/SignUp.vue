@@ -37,11 +37,11 @@ async function onSubmit() {
         });
 
         onReset;
-        console.log(`user ${user.value} LOGGED IN`);
+        // console.log(`user ${user.value} LOGGED IN`);
         router.push({ path: "/auth" });
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
 
       $q.notify({
         color: "red-6",

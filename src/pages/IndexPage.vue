@@ -124,6 +124,9 @@ const taskIsComplete = async (task) => {
     task.is_complete = !task.is_complete;
     await taskStore.updateTask(task.id, {
       is_complete: task.is_complete,
+      // is_complete: task.is_complete = !task.is_complete,
+
+      // is_complete: task.is_complete ? false : true,
     });
     $q.notify({
       color: "green-5",

@@ -37,11 +37,11 @@ async function onSubmit() {
         });
 
         onReset;
-        console.log(`user ${user.value} LOGGED IN`);
+        // console.log(`user ${user.value} LOGGED IN`);
         router.push({ path: "/auth" });
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
 
       $q.notify({
         color: "red-5",
@@ -66,57 +66,28 @@ function onReset() {
   <div class="sign-up">
     <div class="q-pa-md">
       <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md">
-        <q-input
-          label="please enter your email address"
-          standout
-          v-model="email"
-          filled
-          type="email"
-          hint=""
-        >
+        <q-input label="please enter your email address" standout v-model="email" filled type="email" hint="">
           <template v-slot:prepend>
             <q-icon name="mail" />
           </template>
         </q-input>
 
-        <q-input
-          label="create password"
-          v-model="password"
-          filled
-          :type="isPwd ? 'password' : 'text'"
-          hint=""
-        >
+        <q-input label="create password" v-model="password" filled :type="isPwd ? 'password' : 'text'" hint="">
           <template v-slot:append>
-            <q-icon
-              :name="isPwd ? 'visibility_off' : 'visibility'"
-              class="cursor-pointer"
-              @click="isPwd = !isPwd"
-            />
+            <q-icon :name="isPwd ? 'visibility_off' : 'visibility'" class="cursor-pointer" @click="isPwd = !isPwd" />
           </template>
         </q-input>
 
-        <q-input
-          label="confirm password"
-          v-model="confirmPassword"
-          filled
-          :type="isConfirmPwd ? 'password' : 'text'"
-          hint=""
-        >
+        <q-input label="confirm password" v-model="confirmPassword" filled :type="isConfirmPwd ? 'password' : 'text'"
+          hint="">
           <template v-slot:append>
-            <q-icon
-              :name="isConfirmPwd ? 'visibility_off' : 'visibility'"
-              class="cursor-pointer"
-              @click="isConfirmPwd = !isConfirmPwd"
-            />
+            <q-icon :name="isConfirmPwd ? 'visibility_off' : 'visibility'" class="cursor-pointer"
+              @click="isConfirmPwd = !isConfirmPwd" />
           </template>
         </q-input>
 
         <div class="form-buttons">
-          <q-btn
-            label="Create account"
-            type="submit"
-            style="background: #738580; color: white"
-          />
+          <q-btn label="Create account" type="submit" style="background: #738580; color: white" />
 
           <q-btn outline style="color: #738580" label="Reset" type="reset" />
         </div>
