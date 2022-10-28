@@ -1,5 +1,3 @@
-// /store/task.js
-
 import { defineStore } from "pinia";
 import { supabase } from "../supabase.js";
 import { useQuasar } from "quasar";
@@ -43,7 +41,7 @@ export const useTaskStore = defineStore("tasks", {
       try {
         const { data, error } = await supabase
           .from("tasks")
-          .update({ is_complete: isComplete })
+          .update({ is_complete: true })
           .eq("id", id);
         if (error) throw error;
       } catch (error) {

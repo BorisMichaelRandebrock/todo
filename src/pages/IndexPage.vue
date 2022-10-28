@@ -14,7 +14,7 @@
       <!-- <AddTaskComponent /> -->
     </div>
     <q-list class="bg-white" separator bordered>
-      <q-item v-for="(task) in tasks" :key="task.title" @click="task.is_complete =!task.is_complete"
+      <q-item v-for="(task) in tasks" :key="task.title" @click="taskIsComplete(task)"
         :class="{ 'done bg-blue-2' :task.is_complete }" clickable="" v-ripple>
         <q-item-section avatar>
           <q-checkbox v-model="task.is_complete" class="no-pointer-event" color="blue-10" />
@@ -118,7 +118,28 @@ const addTask = async () => {
   }
 }
 
+const taskIsComplete = async (task) => {
 
+  try {
+    task.is_complete = !task.is_complete;
+    await taskStore.updateTask(task.id, {
+      is_complete: task.is_complete,
+    });
+    $q.notify({
+      color: "green-5",
+      textColor: "white",
+      icon: "cloud_done",
+      message: "task updated.",
+    });
+  } catch (error) {
+    $q.notify({
+      color: "red-5",
+      textColor: "white",
+      icon: "error",
+      message: "error updating task.",
+    });
+  }
+}
 
 </script>
 
