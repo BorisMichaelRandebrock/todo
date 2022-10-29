@@ -11,14 +11,9 @@ Several users can use the same app, but each user has his own tasks and can only
 
 The app is fully responsive for desktop and mobile devices.
 
+```
 
 https://worlds-best-to-do-list.netlify.app/home
-
-
-
-
-
-```
 
 ## Project technologies
 
@@ -78,11 +73,6 @@ It has been the obvious choice for this project as it is a very light and easy t
 -  Delete task
 -  Mark task as done
 -  Mark task as undone
-
-
-
-
-
 ```
 
 ## Future Features
@@ -94,18 +84,16 @@ It has been the obvious choice for this project as it is a very light and easy t
 -  Dates and times for tasks
 -  User profile
 -  PWA implementation
-
-
-
-
-
-
 ```
 
-## Project setup
+# Project setup
 
-```
+## Install the dependencies
 
+```bash
+yarn
+# or
+npm install
 ```
 
 ### Start the app in development mode (hot-code reloading, error reporting, etc.)
@@ -140,7 +128,10 @@ quasar build
 
 See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
 
-### Badges & Deployed
+### Badges, Deployed & Credits
+
+Thanks to Marc Compte for your knowledge, guiding and help in the darkest moments 🤓.
 
 https://worlds-best-to-do-list.netlify.app/home
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a316bb73-316b-4b3d-a68e-463b2db8f5f2/deploy-status)](https://app.netlify.com/sites/worlds-best-to-do-list/deploys)
