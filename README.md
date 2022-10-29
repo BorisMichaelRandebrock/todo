@@ -18,7 +18,6 @@ https://worlds-best-to-do-list.netlify.app/home
 ## Project technologies
 
 ```
-
 This todo list is a fullstack API project created with Vue.js, Quasar Framework, Pinia (state management) and Node (engine) technology in front end and Supabase in back.
 
 The Supabase database is initially handling two databses: one for users and another for tasks.
@@ -33,21 +32,17 @@ The Quasar framework is the main responsible for the design of the app with its 
 ## Vue.js
 
 ```
-
 Vue.js has been chosen as it is a progressive framework for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable.
 The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. On the other hand, Vue is also perfectly capable of powering sophisticated Single-Page Applications when used in combination with modern tooling and supporting libraries.
 
 This projects has been created in vue compositions API and it is a single page application.
-
-
-
 ```
 
 ## Quasar Framework
 
-the Quasar Framework is a Vue.js based framework that allows you to build responsive Single Page Applications, Progressive Web Apps, Server-Side Rendered Apps, Hybrid Mobile Apps and Electron Apps, all using the same codebase, powered with Vue.js. It offers a state of the art Store, Router, which is why it seemed to be the good alternative for this prooject.
-
 ```
+The Quasar Framework is a Vue.js based framework that allows you to build responsive Single Page Applications, Progressive Web Apps, Server-Side Rendered Apps, Hybrid Mobile Apps and Electron Apps, all using the same codebase, powered with Vue.js. It offers a state of the art Store, Router, which is why it seemed to be the good alternative for this prooject.
+
 
 ```
 
@@ -65,7 +60,6 @@ It has been the obvious choice for this project as it is a very light and easy t
 ## Features
 
 ```
-
 -  Login
 -  Register
 -  Logout
@@ -78,7 +72,6 @@ It has been the obvious choice for this project as it is a very light and easy t
 ## Future Features
 
 ```
-
 -  Shopping list / db and page
 -  Groceries list / db and page
 -  Dates and times for tasks
