@@ -14,10 +14,10 @@
       <!-- <AddTaskComponent /> -->
     </div>
     <q-list class="bg-white" separator bordered>
-      <q-item v-for="(task) in tasks" :key="task.title" @click="taskIsComplete(task)"
+      <q-item v-for="(task) in tasks" :key="task.id" @click="taskIsComplete(task)"
         :class="{ 'done bg-blue-2' :task.is_complete }" clickable="" v-ripple>
         <q-item-section avatar>
-          <q-checkbox v-model="task.is_complete" class="no-pointer-event" color="blue-10" />
+          <q-checkbox v-model="task.is_complete" @click="taskIsCompleteTwice(task)" color="blue-10" />
         </q-item-section>
         <q-item-section>
           <q-item-label>{{ task.title }}</q-item-label>
@@ -121,14 +121,10 @@ const addTask = async () => {
 const taskIsComplete = async (task) => {
 
   try {
-    const toggle = task.is_complete = !task.is_complete;
-    await taskStore.updateTask(task.id, {
-      // is_complete: task.is_complete ? true : false,
-      is_complete: toggle,
-      // is_complete: task.is_complete = !task.is_complete,
-
-      // is_complete: task.is_complete ? false : true,
-    });
+    task.is_complete = !task.is_complete;
+    await taskStore.updateTask(task.id,
+      task.is_complete,
+    );
     $q.notify({
       color: "green-5",
       textColor: "white",
@@ -143,6 +139,11 @@ const taskIsComplete = async (task) => {
       message: "error updating task.",
     });
   }
+}
+
+const taskIsCompleteTwice = (task) => {
+  taskIsComplete(task);
+  taskIsComplete(task);
 }
 
 </script>
