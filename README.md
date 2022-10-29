@@ -17,7 +17,7 @@ https://worlds-best-to-do-list.netlify.app/home
 
 ## Project technologies
 
-This todo list is a fullstack API project created with Vue.js, Quasar Framework, Pinia (state management) and Node (engine) technology in front end and Supabase in back.
+This todo list is a fullstack API SPA-project created with Vue.js, Quasar Framework, Pinia (state management) and Node (engine) technology in front end and Supabase in back.
 
 The Supabase database is initially handling two databses: one for users and another for tasks.
 At a later stage, the database will be updated to handle more tables, as there shall be several tables for different categories of tasks as shopping, groceríes...
