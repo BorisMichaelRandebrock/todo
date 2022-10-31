@@ -1,5 +1,5 @@
 <template>
-  <q-page class="bg-green-1 column main-body">
+  <q-page class="bg-orange-1 column main-body">
     <div class="top-space">
 
     </div>
@@ -29,8 +29,8 @@
       </q-item>
     </q-list>
     <div v-if="!items.length" class="no-tasks absolute-center">
-      <q-icon name="add_shopping_cart" size="100px" color="blue-10" />
-      <div class="text-h5 text-blue-10">No items</div>
+      <q-icon name="add_shopping_cart" size="100px" color="orange-10" />
+      <div class="text-h5 text-orange-10">No items</div>
 
     </div>
   </q-page>
