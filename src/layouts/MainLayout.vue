@@ -13,9 +13,9 @@
           <div class="text-h3">{{ headerTitle() }}</div>
           <div class="text-subtitle1">{{ todaysDate() }}</div>
         </section>
-        <section>
+        <!-- <section>
           <div class="text-weight-bold user-mail">{{ userMail }}</div>
-        </section>
+        </section> -->
       </span>
       <q-img src="../../public/blueSky.jpg" class="header-img absolute-top" />
 
@@ -99,11 +99,14 @@
 
     <q-footer reveal elevated class="bg-grey-4 text-white">
       <q-toolbar>
-        <q-toolbar-title>
+        <q-toolbar-title class="footer-layout">
           <q-avatar>
             <img src="/list.png" />
           </q-avatar>
         </q-toolbar-title>
+        <section>
+          <div class="text-weight-bold user-mail text-indigo-10">{{ userMail }}</div>
+        </section>
       </q-toolbar>
     </q-footer>
   </q-layout>
@@ -228,9 +231,6 @@ header.q-header.q-layout__section--marginal.fixed-top.bg-deep-purple.text-white 
   margin-left: 10px;
 }
 
-/* aside.q-drawer.q-drawer--right.q-drawer--standard.fixed.q-drawer--on-top.q-drawer--top-padding {
-  width: 250px !important;
-} */
 
 .header-span {
   display: flex;
@@ -238,7 +238,11 @@ header.q-header.q-layout__section--marginal.fixed-top.bg-deep-purple.text-white 
 }
 
 .user-mail {
+  /* position: absolute;
   margin-right: 25px;
+  top: 20px;
+  right: -3px; */
+  opacity: 0.5;
 }
 
 .q-img__content>div {
@@ -268,6 +272,12 @@ header.q-header.q-layout__section--marginal.fixed-top.bg-deep-purple.text-white 
   position: relative;
   top: 25px;
 }
+
+/* .footer-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} */
 
 @media (max-width: 600px) {
   .draw-toggler {
