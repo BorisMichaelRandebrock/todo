@@ -51,6 +51,13 @@
             <q-icon name="list" />
           </q-item-section>
         </q-item>
+        <q-item to="/shopping" clickable v-ripple>
+          <q-item-section>Shopping
+          </q-item-section>
+          <q-item-section avatar>
+            <q-icon name="shopping_cart" />
+          </q-item-section>
+        </q-item>
         <q-item to="/help" clickable v-ripple>
           <q-item-section>Help
           </q-item-section>
@@ -65,6 +72,8 @@
 
         <!-- <EssentialLink v-for="link in essentialLinks" :key="link.title" v-bind="link" /> -->
       </q-list>
+      <q-btn v-if="userMail" @click="goToSignOut()" color="purple-6" glossy="" label="Sign out"
+        class="sign-out-button" />
       <div v-else class="not-logged-draw">
         <q-icon name="fingerprint" size="100px" color="blue-10" class="fingerprint-icon" />
         <div class="text-h6 text-blue-10">you are not logged in</div>
@@ -74,8 +83,6 @@
 
       <!-- </q-scroll-area> -->
 
-      <q-btn v-if="userMail" @click="goToSignOut()" color="purple-6" glossy="" label="Sign out"
-        class="sign-out-button" />
     </q-drawer>
 
     <q-page-container>
@@ -245,6 +252,11 @@ header.q-header.q-layout__section--marginal.fixed-top.bg-deep-purple.text-white 
   opacity: 0.5;
 }
 
+.sign-out-button {
+  position: relative;
+  top: 25px;
+}
+
 @media (max-width: 600px) {
   .draw-toggler {
     position: relative;
@@ -252,13 +264,5 @@ header.q-header.q-layout__section--marginal.fixed-top.bg-deep-purple.text-white 
     right: 89%;
     margin-left: 10px;
   }
-
-  .sign-out-button {
-    position: relative;
-    /* top: 45vh; */
-    top: 25px;
-  }
-
-
 }
 </style>
