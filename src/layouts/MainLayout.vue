@@ -10,7 +10,7 @@
       <span class="header-span">
 
         <section class="q-px-lg q-pt-l q-mb-md">
-          <div class="text-h3">Todo</div>
+          <div class="text-h3">{{ headerTitle() }}</div>
           <div class="text-subtitle1">{{ todaysDate() }}</div>
         </section>
         <section>
@@ -156,6 +156,18 @@ const rightDrawerOpen = ref(false);
 
 const toggleRightDrawer = () => {
   rightDrawerOpen.value = !rightDrawerOpen.value;
+};
+
+const headerTitle = () => {
+  if (router.currentRoute.value.path === "/home") {
+    return "Todo";
+  } else if (router.currentRoute.value.path === "/shopping") {
+    return "Shopping";
+  } else if (router.currentRoute.value.path === "/help") {
+    return "Help";
+  } else {
+    return "Todo";
+  }
 };
 </script>
 
