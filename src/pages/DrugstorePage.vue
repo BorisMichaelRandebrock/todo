@@ -5,7 +5,7 @@
     </div>
     <div class="row q-pa-sm add-task">
 
-      <q-input filled bottom-slots v-model="newMed" label="add remedy" bg-color="white" class="col" dense
+      <q-input filled bottom-slots v-model="newMed" label="add medication" bg-color="white" class="col" dense
         @keyup.enter="addTask">
         <template v-slot:append>
           <q-btn @click="addTask" round dense flat icon="add" />
@@ -104,14 +104,14 @@ const addTask = async () => {
       color: "green-5",
       textColor: "white",
       icon: "add_task",
-      message: "new remedy submitted.",
+      message: "new medication submitted.",
     });
   } catch (error) {
     $q.notify({
       color: "red-5",
       textColor: "white",
       icon: "error",
-      message: "error submitting remedy.",
+      message: "error submitting medication.",
     });
   }
 }
