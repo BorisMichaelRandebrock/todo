@@ -12,7 +12,7 @@
         </template>
       </q-input>
     </div>
-    <q-list class="bg-white" separator bordered>
+    <q-list class="bg-white scroll-area" separator bordered>
       <q-item v-for="(task) in tasks" :key="task.id" @click="taskIsComplete(task)"
         :class="{ 'done bg-blue-2' :task.is_complete }" clickable="" v-ripple>
         <q-item-section avatar>
@@ -153,8 +153,8 @@ const taskIsCompleteTwice = (task) => {
 }
 
 .main-body {
-  height: 100vh;
-  /* padding-bottom: 50px; */
+  height: 100%;
+  flex-wrap: nowrap;
 }
 
 .done {
@@ -171,6 +171,10 @@ const taskIsCompleteTwice = (task) => {
 
 .no-tasks {
   opacity: 0.5;
+}
 
+.scroll-area {
+  overflow-y: scroll;
+  height: auto;
 }
 </style>
