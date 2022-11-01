@@ -170,6 +170,7 @@ const taskIsCompleteTwice = (item) => {
 
 .no-tasks {
   opacity: 0.5;
+  margin-top: 55px;
 }
 
 .scroll-area {
