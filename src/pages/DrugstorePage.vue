@@ -152,7 +152,7 @@ const taskIsCompleteTwice = (med) => {
 }
 
 .main-body {
-  height: -webkit-fill-available;
+  height: 100%;
 }
 
 .done {
@@ -166,9 +166,12 @@ const taskIsCompleteTwice = (med) => {
   margin-bottom: 10px;
 }
 
-
 .no-tasks {
   opacity: 0.5;
+}
 
+.q-page-container {
+  height: 100%;
+  background-color: aquamarine;
 }
 </style>

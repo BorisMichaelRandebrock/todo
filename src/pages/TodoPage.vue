@@ -11,15 +11,8 @@
           <q-btn @click="addTask" round dense flat icon="add" />
         </template>
       </q-input>
-      <!-- <AddTaskComponent /> -->
     </div>
-
-    <!-- <div class="q-gutter-md row justify-center">
-      <q-spinner-clock color="primary" size="5em" />
-      <q-tooltip :offset="[0, 8]">QSpinnerClock</q-tooltip>
-    </div> -->
-
-    <q-list class="bg-white q-pb-xl" separator bordered>
+    <q-list class="bg-white" separator bordered>
       <q-item v-for="(task) in tasks" :key="task.id" @click="taskIsComplete(task)"
         :class="{ 'done bg-blue-2' :task.is_complete }" clickable="" v-ripple>
         <q-item-section avatar>
@@ -28,7 +21,6 @@
         <q-item-section>
           <q-item-label>{{ task.title }}</q-item-label>
         </q-item-section>
-
         <q-item-section v-if="task.is_complete" side>
           <q-btn flat round icon="delete" color="blue-10" @click.stop="deleteTask(task.id)" />
         </q-item-section>
@@ -45,7 +37,6 @@
 
 
 <script setup>
-
 import { useUserStore } from '../stores/user.js'
 import { useTaskStore } from '../stores/task'
 import { supabase } from '../supabase';
@@ -154,15 +145,6 @@ const taskIsCompleteTwice = (task) => {
   taskIsComplete(task);
   taskIsComplete(task);
 }
-
-// $q.loading.show({
-//   delay: 400 // ms
-
-
-// })
-
-// $q.loading.hide()
-
 </script>
 
 <style scoped>
@@ -170,9 +152,10 @@ const taskIsCompleteTwice = (task) => {
   height: 150px;
 }
 
-/* .main-body {
-  height: -webkit-fill-available;
-} */
+.main-body {
+  height: 100vh;
+  /* padding-bottom: 50px; */
+}
 
 .done {
   text-decoration: line-through;

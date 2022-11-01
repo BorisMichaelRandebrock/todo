@@ -41,8 +41,6 @@ async function onSubmit() {
         router.push({ path: "/auth" });
       }
     } catch (error) {
-      // console.log(error);
-
       $q.notify({
         color: "red-6",
         textColor: "white",

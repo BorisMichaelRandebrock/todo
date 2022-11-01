@@ -13,9 +13,7 @@
           <div class="text-h3">{{ headerTitle() }}</div>
           <div class="text-subtitle1">{{ todaysDate() }}</div>
         </section>
-        <!-- <section>
-          <div class="text-weight-bold user-mail">{{ userMail }}</div>
-        </section> -->
+
       </span>
       <q-img src="../../public/blueSky.jpg" class="header-img absolute-top" />
 
@@ -72,12 +70,7 @@
             <q-icon name="help" />
           </q-item-section>
         </q-item>
-        <!-- <q-item-label header>
-          Essential Links
-        </q-item-label> -->
 
-
-        <!-- <EssentialLink v-for="link in essentialLinks" :key="link.title" v-bind="link" /> -->
       </q-list>
       <q-btn v-if="userMail" @click="goToSignOut()" color="purple-6" glossy="" label="Sign out"
         class="sign-out-button" />
@@ -88,7 +81,6 @@
 
       </div>
 
-      <!-- </q-scroll-area> -->
 
     </q-drawer>
 
@@ -176,7 +168,7 @@ const headerTitle = () => {
   } else if (router.currentRoute.value.path === "/drugstore") {
     return "Drugstore";
   } else {
-    return "Todo";
+    return "to-do list";
   }
 };
 </script>
@@ -245,10 +237,6 @@ header.q-header.q-layout__section--marginal.fixed-top.bg-deep-purple.text-white 
 }
 
 .user-mail {
-  /* position: absolute;
-  margin-right: 25px;
-  top: 20px;
-  right: -3px; */
   opacity: 0.5;
 }
 
@@ -280,11 +268,7 @@ header.q-header.q-layout__section--marginal.fixed-top.bg-deep-purple.text-white 
   top: 25px;
 }
 
-/* .footer-layout {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-} */
+
 
 @media (max-width: 600px) {
   .draw-toggler {
