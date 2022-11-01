@@ -58,6 +58,13 @@
             <q-icon name="shopping_cart" />
           </q-item-section>
         </q-item>
+        <q-item to="/drugstore" clickable v-ripple>
+          <q-item-section>Drugstore
+          </q-item-section>
+          <q-item-section avatar>
+            <q-icon name="medication" />
+          </q-item-section>
+        </q-item>
         <q-item to="/help" clickable v-ripple>
           <q-item-section>Help
           </q-item-section>
@@ -166,6 +173,8 @@ const headerTitle = () => {
     return "Shopping";
   } else if (router.currentRoute.value.path === "/help") {
     return "Help";
+  } else if (router.currentRoute.value.path === "/drugstore") {
+    return "Drugstore";
   } else {
     return "Todo";
   }
