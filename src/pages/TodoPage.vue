@@ -13,7 +13,13 @@
       </q-input>
       <!-- <AddTaskComponent /> -->
     </div>
-    <q-list class="bg-white" separator bordered>
+
+    <!-- <div class="q-gutter-md row justify-center">
+      <q-spinner-clock color="primary" size="5em" />
+      <q-tooltip :offset="[0, 8]">QSpinnerClock</q-tooltip>
+    </div> -->
+
+    <q-list class="bg-white scroll" separator bordered>
       <q-item v-for="(task) in tasks" :key="task.id" @click="taskIsComplete(task)"
         :class="{ 'done bg-blue-2' :task.is_complete }" clickable="" v-ripple>
         <q-item-section avatar>
@@ -49,12 +55,15 @@ import { ref } from "vue";
 import { useQuasar } from "quasar";
 import { storeToRefs } from 'pinia'
 
+import { scroll } from 'quasar'
+const { getScrollTarget } = scroll
+getScrollTarget()
+
 
 
 const newTask = ref("");
 const $q = useQuasar();
 
-// import AddTaskComponent from '../components/AddTaskComponent.vue'
 
 
 const title = ref("");
@@ -145,6 +154,14 @@ const taskIsCompleteTwice = (task) => {
   taskIsComplete(task);
   taskIsComplete(task);
 }
+
+// $q.loading.show({
+//   delay: 400 // ms
+
+
+// })
+
+// $q.loading.hide()
 
 </script>
 

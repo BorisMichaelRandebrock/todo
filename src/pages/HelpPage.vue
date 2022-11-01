@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <h2>Help</h2>
+  <h2></h2>
   <article>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt ipsam voluptatibus a in quo. Ipsam minima sint
       consequatur veniam neque hic, atque adipisci quo deleniti iure corporis, ex expedita iste.</p>
@@ -30,7 +30,6 @@ h2 {
 }
 
 article {
-  max-width: 800px;
   margin: 0 auto;
   padding: 25px;
   line-height: 1.5;
