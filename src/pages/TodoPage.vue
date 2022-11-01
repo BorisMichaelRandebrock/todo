@@ -166,6 +166,7 @@ const taskIsCompleteTwice = (task) => {
   height: 50px;
   align-items: center;
   margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 
@@ -176,5 +177,12 @@ const taskIsCompleteTwice = (task) => {
 .scroll-area {
   overflow-y: scroll;
   height: auto;
+  margin-bottom: 50px;
+}
+
+@media screen and (max-width: 600px) {
+  .add-task {
+    margin-top: 10px;
+  }
 }
 </style>
