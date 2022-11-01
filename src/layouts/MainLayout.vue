@@ -86,10 +86,7 @@
     </q-drawer>
 
     <q-page-container>
-      <!-- <KeepAlive>
 
-      </KeepAlive> -->
-      <!-- <router-view /> -->
       <router-view v-slot="{ Component }">
         <component :is="Component" />
         <keep-alive>
@@ -120,6 +117,7 @@ import { storeToRefs } from "pinia";
 import { useRouter } from "vue-router";
 import { useQuasar } from "quasar";
 import { computed } from "vue";
+
 
 const $q = useQuasar();
 const $userStore = useUserStore();

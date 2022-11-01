@@ -11,20 +11,19 @@
           <q-btn @click="addTask" round dense flat icon="add" />
         </template>
       </q-input>
-      <!-- <AddTaskComponent /> -->
     </div>
     <q-list class="bg-white" separator bordered>
       <q-item v-for="(item) in items" :key="item.id" @click="taskIsComplete(item)"
-        :class="{ 'done bg-blue-2' :item.is_complete }" clickable="" v-ripple>
+        :class="{ 'done bg-orange-2' :item.is_complete }" clickable="" v-ripple>
         <q-item-section avatar>
-          <q-checkbox v-model="item.is_complete" @click="taskIsCompleteTwice(item)" color="blue-10" />
+          <q-checkbox v-model="item.is_complete" @click="taskIsCompleteTwice(item)" color="orange-10" />
         </q-item-section>
         <q-item-section>
           <q-item-label>{{ item.title }}</q-item-label>
         </q-item-section>
 
         <q-item-section v-if="item.is_complete" side>
-          <q-btn flat round icon="delete" color="blue-10" @click.stop="deleteTask(item.id)" />
+          <q-btn flat round icon="delete" color="orange-10" @click.stop="deleteTask(item.id)" />
         </q-item-section>
       </q-item>
     </q-list>
@@ -54,7 +53,6 @@ import { storeToRefs } from 'pinia'
 const newItem = ref("");
 const $q = useQuasar();
 
-// import AddTaskComponent from '../components/AddTaskComponent.vue'
 
 
 const title = ref("");
@@ -77,7 +75,6 @@ const deleteTask = (id) => {
     bgColor: "green",
     persistent: true,
   }).onOk(async () => {
-    // tasks.value.splice(index, 1);
     await taskStore.deleteTask(id);
     await taskStore.fetchTasks(userStore.user.id);
     $q.notify({
