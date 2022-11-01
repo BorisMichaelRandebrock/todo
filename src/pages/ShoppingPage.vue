@@ -1,8 +1,8 @@
 <template>
   <q-page class="bg-orange-1 column main-body">
-    <div class="top-space">
+    <!-- <div class="top-space">
 
-    </div>
+    </div> -->
     <div class="row q-pa-sm add-task">
 
       <q-input filled bottom-slots v-model="newItem" label="add shopping item" bg-color="white" class="col" dense
@@ -161,10 +161,10 @@ const taskIsCompleteTwice = (item) => {
 }
 
 .add-task {
-  height: 50px;
+  height: 205px;
   align-items: center;
-  margin-bottom: 10px;
-  margin-top: 10px;
+  padding-top: 155px;
+  /* position: relative; */
 }
 
 
@@ -180,7 +180,7 @@ const taskIsCompleteTwice = (item) => {
 
 @media screen and (max-width: 600px) {
   .add-task {
-    margin-top: 10px;
+    margin-top: 0px;
   }
 }
 </style>
