@@ -12,7 +12,7 @@
           <div class="text-date">{{ todaysDate() }}</div>
         </section>
       </span>
-      <q-img src="../../public/blueSky.jpg" class="header-img absolute-top" />
+      <q-img src="../../public/blueSky.jpg" class="header-img absolute-top" alt="picture of blue sky" />
     </q-header>
 
     <q-drawer :width="300" class="q-pa-md smaller-drawer" v-model="rightDrawerOpen" side="right" overlay
@@ -20,13 +20,13 @@
       <div class="q-img q-img--menu absolute-top" role="img" style="height: 148px">
         <div class="q-img__container absolute-full">
           <img class="q-img__image q-img__image--with-transition q-img__image--loaded background-img" loading="lazy"
-            fetchpriority="auto" aria-hidden="true" draggable="false" src="/blueSky.jpg" />
+            fetchpriority="auto" aria-hidden="true" draggable="false" src="/blueSky.jpg" alt="image of a blue sky" />
         </div>
         <div class="q-img__content absolute-full q-anchor--skip">
           <div class="absolute-bottom bg-transparent">
             <div class="q-avatar q-mb-sm">
               <div class="q-avatar__content row flex-center overflow-hidden">
-                <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
+                <img src="https://cdn.quasar.dev/img/boy-avatar.png" alt="some bloke with dark hair - drawn picture" />
               </div>
             </div>
             <div class="text-weight-bold text-indigo-10">{{ userMail }}</div>
@@ -87,7 +87,7 @@
       <q-toolbar>
         <q-toolbar-title class="footer-layout">
           <q-avatar>
-            <img src="/list.png" />
+            <img src="/list.png" alt="list-icon" />
           </q-avatar>
         </q-toolbar-title>
         <section>
