@@ -22,7 +22,7 @@ const SignedUp = ref(true);
   </div>
   <div v-else class="already">
     Already have an account?
-    <q-btn @click="SignedUp = !SignedUp" color="purple-6" glossy="" class="signed-up-button">
+    <q-btn @click="SignedUp = !SignedUp" color="purple-6" glossy="" class="signed-up-button login-auth">
       Login
     </q-btn>
   </div>
@@ -44,5 +44,9 @@ const SignedUp = ref(true);
   justify-content: center;
   position: relative;
   top: -200px;
+}
+
+.login-auth {
+  width: 83.7px;
 }
 </style>

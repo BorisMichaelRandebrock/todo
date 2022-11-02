@@ -97,8 +97,7 @@ async function signIn() {
 }
 
 /* .first-form-button {
-  background-color: blueviolet;
-  color: white;
+
 } */
 
 .q-pa-md {
