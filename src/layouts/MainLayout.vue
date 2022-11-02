@@ -4,19 +4,15 @@
       <q-toolbar>
         <q-toolbar-title>
         </q-toolbar-title>
-
         <q-btn dense flat round icon="menu" @click="toggleRightDrawer" class="draw-toggler" />
       </q-toolbar>
       <span class="header-span">
-
         <section class="q-px-lg q-pt-l q-mb-md">
           <div class="text-h3">{{ headerTitle() }}</div>
-          <div class="text-subtitle1">{{ todaysDate() }}</div>
+          <div class="text-date">{{ todaysDate() }}</div>
         </section>
-
       </span>
       <q-img src="../../public/blueSky.jpg" class="header-img absolute-top" />
-
     </q-header>
 
     <q-drawer :width="300" class="q-pa-md smaller-drawer" v-model="rightDrawerOpen" side="right" overlay
@@ -70,22 +66,16 @@
             <q-icon name="help" />
           </q-item-section>
         </q-item>
-
       </q-list>
       <q-btn v-if="userMail" @click="goToSignOut()" color="purple-6" glossy="" label="Sign out"
         class="sign-out-button" />
       <div v-else class="not-logged-draw">
         <q-icon name="fingerprint" size="100px" color="blue-10" class="fingerprint-icon" />
         <div class="text-h6 text-blue-10">Please log in</div>
-
-
       </div>
-
-
     </q-drawer>
 
     <q-page-container>
-
       <router-view v-slot="{ Component }">
         <component :is="Component" />
         <keep-alive>
@@ -137,12 +127,8 @@ const userMail = computed(() => {
   return user.value.email;
 });
 
-// const todoUser = () => ref(user.value.displayName);
-
 async function goToSignOut() {
-  // console.log($userStore);
   $userStore.signOut();
-  // console.log("you are signed out", user.value);
   $q.notify({
     color: "purple-6",
     textColor: "white",
@@ -224,9 +210,9 @@ header.q-header.q-layout__section--marginal.fixed-top.bg-deep-purple.text-white 
 }
 
 .draw-toggler {
-  position: relative;
-  top: 0px;
-  right: 96%;
+  position: absolute;
+  top: 12px;
+  left: 10px;
   margin-left: 10px;
 }
 
@@ -270,12 +256,13 @@ header.q-header.q-layout__section--marginal.fixed-top.bg-deep-purple.text-white 
 
 
 
-@media (max-width: 600px) {
-  .draw-toggler {
-    position: relative;
-    top: 0px;
-    right: 89%;
-    margin-left: 10px;
+@media (max-width: 300px) {
+
+
+  .text-date {
+    position: absolute;
+    top: 15px;
+    right: 10px;
   }
 }
 </style>

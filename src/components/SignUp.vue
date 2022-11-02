@@ -37,7 +37,6 @@ async function onSubmit() {
         });
 
         onReset;
-        // console.log(`user ${user.value} LOGGED IN`);
         router.push({ path: "/auth" });
       }
     } catch (error) {
