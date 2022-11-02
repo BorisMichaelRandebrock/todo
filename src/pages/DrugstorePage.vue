@@ -97,8 +97,7 @@ const addTask = async () => {
         inserted_at: new Date(),
       }
     );
-    console.log("hello kitty"),
-      await taskStore.fetchTasks(id);
+    await taskStore.fetchTasks(id);
     newMed.value = '';
     $q.notify({
       color: "green-5",
