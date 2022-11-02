@@ -2,21 +2,15 @@
 </script>
 
 <template>
-  <h2></h2>
+  <h2>Welcome to the help-page</h2>
   <article>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt ipsam voluptatibus a in quo. Ipsam minima sint
-      consequatur veniam neque hic, atque adipisci quo deleniti iure corporis, ex expedita iste.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum cupiditate veritatis ut iusto numquam architecto
-      necessitatibus magni impedit explicabo? Deserunt neque officiis iste perferendis harum voluptates provident nam
-      tenetur sapiente?</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi dolorum qui adipisci impedit ipsum dolores a
-      magni debitis nemo, numquam corrupti eos at ullam dolor fugiat nihil, similique cumque beatae!</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus dolores illum ea sint error odio, sapiente
-      voluptatem? Perferendis commodi at laudantium, tenetur voluptate aut accusantium dicta eaque distinctio corporis
-      sit?</p>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum soluta voluptate cumque suscipit architecto
-      mollitia officiis labore natus necessitatibus error praesentium, distinctio animi dolorum, corrupti autem nam
-      eius? Amet, quibusdam.</p>
+    <p>Datainputs must be larger than 3 - if you nevertheless have to input a 3 letter word (or less), you can use
+      spaces</p>
+    <p>You can only delete a list item if you first highlight it; after highlighting a litter box appears and you can
+      eliminate the item by clicking on the litter box</p>
+    <p>for the use of the add button you can either click with the mouse, or hit enter on the keyboard after having
+      written the input title</p>
+    <p>The date is automatically updated.</p>
   </article>
 </template>
 
