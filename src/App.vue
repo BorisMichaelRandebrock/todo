@@ -35,7 +35,13 @@ onMounted(async () => {
       router.push({ path: "/home" });
     }
   } catch (e) {
-    console.log(e);
+    // console.log(e);
+    $q.notify({
+      color: "red-5",
+      textColor: "white",
+      icon: "warning",
+      message: `An error occurred: ${e}`,
+    });
   }
 });
 </script>
