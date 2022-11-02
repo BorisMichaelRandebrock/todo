@@ -19,7 +19,7 @@
 
     </q-header>
 
-    <q-drawer :width="250" class="q-pa-md smaller-drawer" v-model="rightDrawerOpen" side="right" overlay
+    <q-drawer :width="300" class="q-pa-md smaller-drawer" v-model="rightDrawerOpen" side="right" overlay
       behavior="desktop" elevated style="display: flex; flex-direction: column" @click="toggleRightDrawer">
       <div class="q-img q-img--menu absolute-top" role="img" style="height: 148px">
         <div class="q-img__container absolute-full">
@@ -76,7 +76,7 @@
         class="sign-out-button" />
       <div v-else class="not-logged-draw">
         <q-icon name="fingerprint" size="100px" color="blue-10" class="fingerprint-icon" />
-        <div class="text-h6 text-blue-10">you are not logged in</div>
+        <div class="text-h6 text-blue-10">Please log in</div>
 
 
       </div>
