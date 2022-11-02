@@ -17,13 +17,13 @@ const SignedUp = ref(true);
   <div v-if="SignedUp" class="already">
     Don't have an account?
     <q-btn @click="SignedUp = !SignedUp" class="signed-up-button" color="purple-6" glossy="">
-      Sign Up
+      Register
     </q-btn>
   </div>
   <div v-else class="already">
     Already have an account?
     <q-btn @click="SignedUp = !SignedUp" color="purple-6" glossy="" class="signed-up-button">
-      Sign In
+      Login
     </q-btn>
   </div>
 </template>
