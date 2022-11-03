@@ -1,10 +1,11 @@
 <template>
   <q-layout view="hHr lpR fFf">
-    <q-header elevated class="bg-light-blue text-indigo-10" height-hint="98">
+    <q-header elevated class="bg-blue-1 text-indigo-10" height-hint="98">
       <q-toolbar>
         <q-toolbar-title>
         </q-toolbar-title>
-        <q-btn dense flat round icon="menu" @click="toggleRightDrawer" class="draw-toggler" id="side-drawer-toggler" />
+        <q-btn dense flat round icon="menu" @click="toggleRightDrawer" class="draw-toggler" id="side-drawer-toggler"
+          aria-label="side-drawer-toggler" />
       </q-toolbar>
       <span class="header-span">
         <section class="q-px-lg q-pt-l q-mb-md">
@@ -68,7 +69,7 @@
         </q-item>
       </q-list>
       <q-btn v-if="userMail" @click="goToSignOut()" color="purple-6" glossy="" label="Sign out" class="sign-out-button"
-        id="sign-out-buton-mainlayout" />
+        id="sign-out-buton-mainlayout" aria-label="sign-out-buton-mainlayout" />
       <div v-else class="not-logged-draw">
         <q-icon name="fingerprint" size="100px" color="blue-10" class="fingerprint-icon" />
         <div class="text-h6 text-blue-10">Please log in</div>

@@ -8,7 +8,7 @@
       <q-input filled bottom-slots v-model="newTask" label="add task" bg-color="white" class="col" dense
         @keyup.enter="addTask">
         <template v-slot:append>
-          <q-btn @click="addTask" round dense flat icon="add" id="add-task-button" />
+          <q-btn @click="addTask" round dense flat icon="add" id="add-task-button" aria-label="add-task-button" />
         </template>
       </q-input>
     </div>
@@ -22,7 +22,8 @@
           <q-item-label>{{ task.title }}</q-item-label>
         </q-item-section>
         <q-item-section v-if="task.is_complete" side>
-          <q-btn flat round icon="delete" color="blue-10" @click.stop="deleteTask(task.id)" id="delete-task-button" />
+          <q-btn flat round icon="delete" color="blue-10" @click.stop="deleteTask(task.id)" id="delete-task-button"
+            aria-label="delete-task-button" />
         </q-item-section>
       </q-item>
     </q-list>
