@@ -223,7 +223,7 @@ header.q-header.q-layout__section--marginal.fixed-top.bg-deep-purple.text-white 
 }
 
 .user-mail {
-  opacity: 0.5;
+  opacity: 0.8;
 }
 
 .q-img__content>div {
