@@ -8,7 +8,7 @@
       <q-input filled bottom-slots v-model="newMed" label="add medication" bg-color="white" class="col" dense
         @keyup.enter="addTask">
         <template v-slot:append>
-          <q-btn @click="addTask" round dense flat icon="add" />
+          <q-btn @click="addTask" round dense flat icon="add" id="addtask-button" />
         </template>
       </q-input>
     </div>
@@ -23,7 +23,7 @@
         </q-item-section>
 
         <q-item-section v-if="med.is_complete" side>
-          <q-btn flat round icon="delete" color="green-10" @click.stop="deleteTask(med.id)" />
+          <q-btn flat round icon="delete" color="green-10" @click.stop="deleteTask(med.id)" id="deletetask-button" />
         </q-item-section>
       </q-item>
     </q-list>

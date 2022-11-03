@@ -68,7 +68,7 @@
         </q-item>
       </q-list>
       <q-btn v-if="userMail" @click="goToSignOut()" color="purple-6" glossy="" label="Sign out" class="sign-out-button"
-        id="sign-out-btn" />
+        id="sign-out-buton-mainlayout" />
       <div v-else class="not-logged-draw">
         <q-icon name="fingerprint" size="100px" color="blue-10" class="fingerprint-icon" />
         <div class="text-h6 text-blue-10">Please log in</div>
@@ -174,6 +174,7 @@ const headerTitle = () => {
   object-fit: cover;
   object-position: 50% 50%;
   z-index: 99;
+  height: 137px;
 }
 
 .q-avatar .q-mb-sm {
@@ -188,6 +189,7 @@ const headerTitle = () => {
 .header-img {
   height: 100%;
   z-index: -1;
+  height: 137px;
 }
 
 header.q-header.q-layout__section--marginal.fixed-top.bg-deep-purple.text-white {
