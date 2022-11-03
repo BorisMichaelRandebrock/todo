@@ -84,9 +84,10 @@ function onReset() {
         </q-input>
 
         <div class="form-buttons">
-          <q-btn class="first-form-button" label="Register" type="submit" color="purple-6" glossy="" />
+          <q-btn class="first-form-button" label="Register" type="submit" color="purple-6" glossy=""
+            id="first-form-btn" />
 
-          <q-btn outline label="Reset" type="reset" />
+          <q-btn outline label="Reset" type="reset" id="reset-btn" />
         </div>
       </q-form>
       <q-space></q-space>

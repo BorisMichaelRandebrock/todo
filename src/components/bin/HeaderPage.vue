@@ -8,7 +8,7 @@
         Title
       </q-toolbar-title>
 
-      <q-btn dense flat round icon="menu" @click="toggleRightDrawer" />
+      <q-btn dense flat round icon="menu" @click="toggleRightDrawer" id="right-drawer-toggle-button-header-page" />
     </q-toolbar>
 
     <q-tabs align="left">
