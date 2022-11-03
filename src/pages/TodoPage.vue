@@ -16,7 +16,7 @@
       <q-item v-for="(task) in tasks" :key="task.id" @click="taskIsComplete(task)"
         :class="{ 'done bg-blue-2' :task.is_complete }" clickable="" v-ripple>
         <q-item-section avatar>
-          <q-checkbox v-model="task.is_complete" @click="taskIsCompleteTwice(task)" color="blue-10" />
+          <q-checkbox v-model="task.is_complete" @click="taskIsCompleteTwice(task)" color="blue-10" role="checkbox" />
         </q-item-section>
         <q-item-section>
           <q-item-label>{{ task.title }}</q-item-label>
