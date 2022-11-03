@@ -4,7 +4,7 @@
       <q-toolbar>
         <q-toolbar-title>
         </q-toolbar-title>
-        <q-btn dense flat round icon="menu" @click="toggleRightDrawer" class="draw-toggler" />
+        <q-btn dense flat round icon="menu" @click="toggleRightDrawer" class="draw-toggler" id="side-drawer-toggler" />
       </q-toolbar>
       <span class="header-span">
         <section class="q-px-lg q-pt-l q-mb-md">
@@ -67,8 +67,8 @@
           </q-item-section>
         </q-item>
       </q-list>
-      <q-btn v-if="userMail" @click="goToSignOut()" color="purple-6" glossy="" label="Sign out"
-        class="sign-out-button" />
+      <q-btn v-if="userMail" @click="goToSignOut()" color="purple-6" glossy="" label="Sign out" class="sign-out-button"
+        id="sign-out-btn" />
       <div v-else class="not-logged-draw">
         <q-icon name="fingerprint" size="100px" color="blue-10" class="fingerprint-icon" />
         <div class="text-h6 text-blue-10">Please log in</div>
