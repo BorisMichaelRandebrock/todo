@@ -4,7 +4,8 @@
 <template>
   <h2>Welcome to the help-page</h2>
   <article>
-    <p>Datainputs must be larger than 3 - if you nevertheless have to input a 3 letter word (or less), you can use
+    <p>Datainputs must be larger than 3 characters long - if you nevertheless have to input a 3 letter word (or less),
+      you can use
       spaces.</p>
     <p>You can only delete a list item if you first highlight it; after highlighting a litter box appears and you can
       eliminate the item by clicking on the litter box.</p>
