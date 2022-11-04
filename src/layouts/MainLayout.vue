@@ -56,6 +56,13 @@
             <q-icon name="medication" />
           </q-item-section>
         </q-item>
+        <q-item to="/profile" clickable v-ripple>
+          <q-item-section>My Profile
+          </q-item-section>
+          <q-item-section avatar>
+            <q-icon name="person" />
+          </q-item-section>
+        </q-item>
         <q-item to="/help" clickable v-ripple>
           <q-item-section>Help
           </q-item-section>
@@ -150,7 +157,10 @@ const headerTitle = () => {
     return "Help";
   } else if (router.currentRoute.value.path === "/drugstore") {
     return "Drugstore";
-  } else {
+  } else if (router.currentRoute.value.path === "/profile") {
+    return "My Profile";
+  }
+  else {
     return "to-do list";
   }
 };

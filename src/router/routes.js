@@ -13,6 +13,7 @@ const routes = [
 
       { path: "/auth", component: () => import("pages/AuthPage.vue") },
       { path: "/help", component: () => import("pages/HelpPage.vue") },
+      { path: "/profile", component: () => import("pages/ProfilePage.vue") },
     ],
   },
 
