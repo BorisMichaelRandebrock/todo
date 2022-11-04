@@ -13,7 +13,7 @@
           <div class="text-date">{{ todaysDate() }}</div>
         </section>
       </span>
-      <q-img src="../../public/blueSky.jpg" class="header-img absolute-top" alt="picture of blue sky" />
+      <q-img src="/blueSky.jpg" class="header-img absolute-top" alt="picture of blue sky" />
     </q-header>
     <q-drawer :width="300" class="q-pa-md smaller-drawer" v-model="rightDrawerOpen" side="right" overlay
       behavior="desktop" elevated style="display: flex; flex-direction: column" @click="toggleRightDrawer">
@@ -26,7 +26,7 @@
           <div class="absolute-bottom bg-transparent">
             <div class="q-avatar q-mb-sm">
               <div class="q-avatar__content row flex-center overflow-hidden">
-                <img src="../../public/boy-avatar.png" alt="some bloke with dark hair - drawn picture" />
+                <img src="/boy-avatar.png" alt="some bloke with dark hair - drawn picture" />
               </div>
             </div>
             <div class="text-weight-bold text-indigo-10">{{ userMail }}</div>
