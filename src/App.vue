@@ -18,24 +18,19 @@ const $q = useQuasar();
 
 onMounted(async () => {
   try {
-    await userStore.fetchUser(); // here we call fetch user
+    await userStore.fetchUser();
     if (!user.value) {
       router.push({ path: "/auth" });
-      // await userStore.signUp("boris@randebrock.com", "password");
-      // console.log(user.value); supabase.from.select.eq()
     } else {
-      // console.log("estás logeado");
       $q.notify({
         color: "green-8",
         textColor: "white",
         icon: "done_all",
         message: "you are logged in!",
       });
-      //   console.log(user.value);
       router.push({ path: "/home" });
     }
   } catch (e) {
-    // console.log(e);
     $q.notify({
       color: "red-5",
       textColor: "white",
