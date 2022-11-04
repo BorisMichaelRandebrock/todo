@@ -12,7 +12,6 @@ export const useUserStore = defineStore("user", {
   actions: {
     async fetchUser() {
       const user = await supabase.auth.user();
-      //console.log(user);
       if (user) {
         this.user = user;
       }
@@ -40,7 +39,6 @@ export const useUserStore = defineStore("user", {
         this.user = null;
         localStorage.removeItem("persist:supabase");
       } catch (error) {
-        // console.log(error);
         $q.notify({
           type: "negative",
           message: "Error signing out",
@@ -53,9 +51,8 @@ export const useUserStore = defineStore("user", {
         $q.notify({
           type: "positive",
           message: "Signed in",
+          icon: "check",
         });
-        // alert("hello");
-        // console.log(event, session);
       });
     },
   },

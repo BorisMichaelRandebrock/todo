@@ -73,7 +73,6 @@ const deleteTask = (id) => {
     bgColor: "green",
     persistent: true,
   }).onOk(async () => {
-    // tasks.value.splice(index, 1);
     await taskStore.deleteTask(id);
     await taskStore.fetchTasks(userStore.user.id);
     $q.notify({
