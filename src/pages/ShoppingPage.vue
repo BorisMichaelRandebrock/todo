@@ -1,10 +1,6 @@
 <template>
   <q-page class="bg-orange-1 column main-body">
-    <!-- <div class="top-space">
-
-    </div> -->
     <div class="row q-pa-sm add-task">
-
       <q-input filled bottom-slots v-model="newItem" label="add shopping item" bg-color="white" class="col" dense
         @keyup.enter="addTask">
         <template v-slot:append>
@@ -30,7 +26,6 @@
     <div v-if="!items.length" class="no-tasks absolute-center">
       <q-icon name="add_shopping_cart" size="100px" color="orange-10" />
       <div class="text-h5 text-orange-10">No items</div>
-
     </div>
   </q-page>
 </template>
@@ -38,7 +33,6 @@
 
 
 <script setup>
-
 import { useUserStore } from '../stores/user.js'
 import { useTaskStore } from '../stores/shopping'
 import { supabase } from '../supabase';
@@ -164,7 +158,6 @@ const taskIsCompleteTwice = (item) => {
   height: 205px;
   align-items: center;
   padding-top: 155px;
-  /* position: relative; */
 }
 
 

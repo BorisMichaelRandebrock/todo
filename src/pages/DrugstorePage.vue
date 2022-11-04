@@ -1,10 +1,6 @@
 <template>
   <q-page class="bg-green-1 column main-body">
-    <!-- <div class="top-space">
-
-    </div> -->
     <div class="row q-pa-sm add-task">
-
       <q-input filled bottom-slots v-model="newMed" label="add medication" bg-color="white" class="col" dense
         @keyup.enter="addTask">
         <template v-slot:append>
@@ -21,7 +17,6 @@
         <q-item-section>
           <q-item-label>{{ med.title }}</q-item-label>
         </q-item-section>
-
         <q-item-section v-if="med.is_complete" side>
           <q-btn flat round icon="delete" color="green-10" @click.stop="deleteTask(med.id)" id="deletetask-button" />
         </q-item-section>
@@ -30,7 +25,6 @@
     <div v-if="!meds.length" class="no-tasks absolute-center">
       <q-icon name="medical_services" size="100px" color="green-10" />
       <div class="text-h5 text-green-10">No meds</div>
-
     </div>
   </q-page>
 </template>
@@ -164,7 +158,6 @@ const taskIsCompleteTwice = (med) => {
   height: 205px;
   align-items: center;
   padding-top: 155px;
-  /* position: relative; */
 }
 
 .no-tasks {

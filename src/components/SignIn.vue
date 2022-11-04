@@ -44,7 +44,7 @@ async function signIn() {
         message: `Welcome back, ${email.value}!`,
       });
 
-      onReset(); // Reset the form
+      onReset();
       router.push({ path: "/home" });
     } catch (error) {
       console.log(error);

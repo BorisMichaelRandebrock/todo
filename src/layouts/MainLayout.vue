@@ -15,7 +15,6 @@
       </span>
       <q-img src="../../public/blueSky.jpg" class="header-img absolute-top" alt="picture of blue sky" />
     </q-header>
-
     <q-drawer :width="300" class="q-pa-md smaller-drawer" v-model="rightDrawerOpen" side="right" overlay
       behavior="desktop" elevated style="display: flex; flex-direction: column" @click="toggleRightDrawer">
       <div class="q-img q-img--menu absolute-top" role="img" style="height: 148px">
@@ -34,9 +33,6 @@
           </div>
         </div>
       </div>
-
-
-      <!-- <q-scroll-area style="height: calc(100% -150px); margin-top: 150px "> -->
       <h3>scroll</h3>
       <q-list v-if="userMail">
         <q-item to="/home" clickable v-ripple>
@@ -260,7 +256,6 @@ header.q-header.q-layout__section--marginal.fixed-top.bg-deep-purple.text-white 
 
 
 @media (max-width: 300px) {
-
 
   .text-date {
     position: absolute;

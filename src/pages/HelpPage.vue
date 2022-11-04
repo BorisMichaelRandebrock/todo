@@ -4,14 +4,15 @@
 <template>
   <h2>Welcome to the help-page</h2>
   <article>
+    <p>Day and date on the top of the page are automatically updated and can not be changed.</p>
     <p>Datainputs must be larger than 3 characters long - if you nevertheless have to input a 3 letter word (or less),
       you can use
       spaces.</p>
     <p>You can only delete a list item if you first highlight it; after highlighting a litter box appears and you can
       eliminate the item by clicking on the litter box.</p>
-    <p>for the use of the add button you can either click with the mouse, or hit enter on the keyboard after having
+    <p>For the use of the add item button you can either click with the mouse on the symbol, or else hit enter on the
+      keyboard after having
       written the input title.</p>
-    <p>The date is automatically updated.</p>
   </article>
 </template>
 
