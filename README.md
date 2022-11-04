@@ -12,13 +12,13 @@ https://worlds-best-to-do-list.netlify.app/home
 
 ## Project technologies
 
-This todo list is a fullstack API SPA-project created with Vue.js and Quasar Frameworks, Pinia (state management) and Node (engine) technology in front-end and with Supabase in back-end.
+This todo list is a fullstack API SPA-project created with Vue.js and Quasar Frameworks, Pinia, Vite and Node technology in front-end and with Supabase in back-end and as DB.
 
-The Supabase database is currently handling four databases: one for users authentification and authorization and the other three for the tasks, shopping- and drugstore-items.
+The Supabase database is currently handling four databases: one for the users Auth (authentification and authorization) and the other three for the tasks, shopping- and drugstore-items.
 
-It is easy to implement additional tables.
+As it is build it is fairly easy to implement additional tables.
 
-In order to enhance the user experience, this up is using the Quasar-Dialog, for user confirmations of the delete function, and Quasar-Notify for other user feedbacks like task-uploads, -deletes, -logout...
+In order to enhance the user experience the feedback to the user is handled through the Quasar-Dialog for user confirmations of the delete function, and Quasar-Notify for other user notifications like task-uploads, -deletes, -logout...
 
 The Quasar framework is the main responsible for the design of the app with its corresponding components and styles which than have been customized to fit the projects needs.
 
@@ -27,7 +27,7 @@ The Quasar framework is the main responsible for the design of the app with its 
 Vue.js has been chosen as it is a progressive and very flexible framework for building user interfaces.
 The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. On the other hand, Vue is also perfectly capable of powering sophisticated Single-Page Applications when used in combination with modern tooling and supporting libraries.
 
-This projects has been created in Vue composition API and it is a single page application.
+This projects has been created in Vue composition API and it is a Single Page Application.
 
 ## Quasar Framework
 
@@ -41,13 +41,17 @@ For me it seemed to be the obvious choice for this project as it is a very light
 
 ## Features
 
+- Fully responsive SPA for desktop and mobile devices
+- User Authentification and Authorization
 - Login
 - Register
 - Logout
-- Add task
-- Delete task
-- Mark task as done
-- Mark task as undone
+- Add task/shopping-item/drugstore-item
+- User can see his tasks, shopping-items and drugstore-items
+- Delete task/shopping-item/drugstore-item
+- Mark task/shopping-item/drugstore-item as done
+- Mark task/shopping-item/drugstore-item as undone
+- Task list/ db and page
 - Shopping list / db and page
 - Drugstore list / db and page
 
@@ -55,6 +59,7 @@ For me it seemed to be the obvious choice for this project as it is a very light
 
 - Dates and times for tasks
 - User profile
+- User profile update
 - PWA implementation
 
 # Project setup
@@ -107,7 +112,7 @@ https://worlds-best-to-do-list.netlify.app/home
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a316bb73-316b-4b3d-a68e-463b2db8f5f2/deploy-status)](https://app.netlify.com/sites/worlds-best-to-do-list/deploys)
 
-Copyright 2022 Boris Michael Randebrock
+Copyright 2022 Boris Randebrock
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
