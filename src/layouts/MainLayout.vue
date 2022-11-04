@@ -27,7 +27,7 @@
           <div class="absolute-bottom bg-transparent">
             <div class="q-avatar q-mb-sm">
               <div class="q-avatar__content row flex-center overflow-hidden">
-                <img src="https://cdn.quasar.dev/img/boy-avatar.png" alt="some bloke with dark hair - drawn picture" />
+                <img src="../../public/boy-avatar.png" alt="some bloke with dark hair - drawn picture" />
               </div>
             </div>
             <div class="text-weight-bold text-indigo-10">{{ userMail }}</div>
