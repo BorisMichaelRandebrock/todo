@@ -96,10 +96,6 @@ async function signIn() {
   justify-content: space-between;
 }
 
-/* .first-form-button {
-
-} */
-
 .q-pa-md {
   padding: 16px 16px;
   width: 50vw;
