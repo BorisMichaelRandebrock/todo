@@ -6,7 +6,7 @@ This to-do list is a simple, yet useful tool for the users task-management.
 
 Several users can use the same app, but each user has his own, private tasks and can only create, see, mark as done/undone & delete his own tasks through the supabase data-management setup.
 
-The app is a fully responsive SPA for desktop and mobile devices.
+The app is a CRUD, fully responsive SPA for desktop and mobile devices.
 
 https://worlds-best-to-do-list.netlify.app/home
 
@@ -16,7 +16,7 @@ This todo list is a fullstack API SPA-project created with Vue.js and Quasar Fra
 
 The Supabase database is currently handling four databases: one for the users Auth (authentification and authorization) and the other three for the tasks, shopping- and drugstore-items.
 
-As it is build it is fairly easy to implement additional tables.
+Implementation of additional tables is not presenting any difficulties.
 
 In order to enhance the user experience the feedback to the user is handled through the Quasar-Dialog for user confirmations of the delete function, and Quasar-Notify for other user notifications like task-uploads, -deletes, -logout...
 
@@ -54,11 +54,12 @@ For me it seemed to be the obvious choice for this project as it is a very light
 - Task list/ db and page
 - Shopping list / db and page
 - Drugstore list / db and page
+- User profile editable (name and surname)
 
 ## Future Features
 
+- User profile email, avatar and password editable
 - Dates and times for tasks
-- User profile
 - User profile update
 - PWA implementation
 
@@ -106,7 +107,7 @@ See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-
 
 ### Badges, Deployed & Credits
 
-Thanks to Marc Compte for your knowledge, guiding and help in the darkest moments 🤓.
+Thanks to Marc Compte for your knowledge, guiding and help in the darkest moments 🧙🏻‍♂️.
 
 https://worlds-best-to-do-list.netlify.app/home
 
