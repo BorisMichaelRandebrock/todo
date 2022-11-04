@@ -55,6 +55,37 @@ export const useUserStore = defineStore("user", {
         });
       });
     },
+
+    async resetPasswordForEmail(email) {
+      const { data, error } = await supabase.auth.api.resetPasswordForEmail(
+        email
+      );
+      if (error) throw error;
+    },
+
+    async updatePassword(newPassword) {
+      const { user, error } = await supabase.auth.update({
+        password: newPassword,
+      });
+      if (error) throw error;
+      if (user) this.fetchUser();
+    },
+
+    async updateData(newData) {
+      const { user, error } = await supabase.auth.update({
+        data: newData,
+      });
+      if (error) throw error;
+      if (user) this.user = user;
+    },
+
+    async updateAvatar(avatarImg) {
+      const { data, error } = await supabase.storage
+        .from("avatar")
+        .upload("public/" + this.user.id + Date.now() + ".jpg", avatarImg);
+      if (error) throw error;
+      if (data) return data;
+    },
   },
   persist: {
     enabled: true,
