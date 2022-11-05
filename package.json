@@ -1,7 +1,7 @@
 {
   "name": "quasar-project",
   "version": "0.0.1",
-  "description": "This is a todo list",
+  "description": "todo list",
   "productName": "toDo-list",
   "author": "Boris Michael Randebrock",
   "private": true,
