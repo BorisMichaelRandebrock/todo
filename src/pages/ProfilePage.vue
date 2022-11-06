@@ -24,21 +24,20 @@
             color="green-6" glossy="" label="Save" />
         </div>
       </div>
-
       <div>
         <p>
-          Your name: <b>{{ user.user_metadata.first_name }}</b>
+          Name: <b class="name-tag">{{ user.user_metadata.first_name }}</b>
           <q-input v-show="editData" filled v-model="name" label="Your name" lazy-rules :rules="[
             (val) => (val && val.length > 0) || 'Please enter your name',
           ]" />
         </p>
         <p>
-          Your Surname: <b>{{ user.user_metadata.last_name }}</b>
+          Surname: <b>{{ user.user_metadata.last_name }}</b>
           <q-input v-show="editData" filled v-model="surname" label="Your surname" lazy-rules :rules="[
             (val) => (val && val.length > 0) || 'Please enter your surname',
           ]" />
         </p>
-        <div class="cancel-safe-area">
+        <div class="cancel-safe-area-two">
           <q-btn class="link edit-btn" v-show="!editData" @click="editData = !editData" color="purple-6" glossy=""
             label="Edit" aria-label="edit-userData-button" />
           <q-btn class="link inline-blocks cancel-safe-buttons" v-show="editData" @click="editData = !editData"
@@ -47,11 +46,12 @@
             color="green-6" glossy="" label="Save" />
         </div>
       </div>
+    </div>
 
-      <!-- <div class="q-mt-lg">
+
+    <!-- <div class="q-mt-lg">
         <q-btn @click="router.push({ name: 'reset' })" class="link" label="reset password" color="purple-6" glossy />
       </div> -->
-    </div>
   </q-page>
 </template>
 
@@ -77,7 +77,7 @@ const editAvatar = ref(false);
 
 
 
-function updateData() {
+const updateData = async () => {
   if (!name.value || !surname.value) {
     $q.notify({
       color: "red-9",
@@ -114,7 +114,8 @@ function updateData() {
 }
 
 
-function updateAvatar() {
+
+const updateAvatar = () => {
   $userStore
     .updateAvatar(img.value)
     .then((data) => {
@@ -156,6 +157,12 @@ function updateAvatar() {
   justify-content: space-between;
 }
 
+.cancel-safe-area-two {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0px 15px;
+}
+
 .profile-page {
   display: flex;
   flex-wrap: wrap;
@@ -173,7 +180,17 @@ function updateAvatar() {
 
 .user-image-avatar {
   padding: 0px 23px;
-  /* align-items: center; */
-  /* display: contents; */
+}
+
+p {
+  margin: 0 15px 16px;
+}
+
+.name-tag {
+  padding-left: 22px;
+}
+
+b {
+  padding-left: 5px;
 }
 </style>
