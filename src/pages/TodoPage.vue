@@ -10,18 +10,36 @@
     </div>
     <q-list class="bg-white scroll-area" separator bordered>
       <q-item v-for="(task) in tasks" :key="task.id" @click="taskIsComplete(task)"
-        :class="{ 'done bg-blue-2' :task.is_complete }" clickable="" v-ripple>
-        <q-item-section avatar>
-          <q-checkbox v-model="task.is_complete" @click="taskIsCompleteTwice(task)" color="blue-10" role="checkbox" />
-        </q-item-section>
-        <q-item-section>
-          <q-item-label>{{ task.title }}</q-item-label>
-        </q-item-section>
-        <q-item-section v-if="task.is_complete" side>
-          <q-btn flat round icon="delete" color="blue-10" @click.stop="deleteTask(task.id)" id="delete-task-button"
-            aria-label="delete-task-button" />
-        </q-item-section>
+        :class="{ 'done bg-blue-2': task.is_complete }" clickable="" v-ripple v>
+        <div v-if="!task.edit" class="task-row">
+
+          <q-item-section avatar>
+            <q-checkbox v-model="task.is_complete" @click="taskIsCompleteTwice(task)" color="blue-10" role="checkbox" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>{{ task.title }}</q-item-label>
+          </q-item-section>
+          <q-item-section v-if="task.is_complete" side>
+            <q-btn flat round icon="delete" color="blue-10" @click.stop="deleteTask(task.id)" id="delete-task-button"
+              aria-label="delete-task-button" />
+          </q-item-section>
+          <q-item-section side>
+            <q-btn @click.stop="task.edit = !task.edit" round dense flat icon="edit" color="blue-10º"
+              aria-label="edit-task-button" />
+          </q-item-section>
+        </div>
+        <div v-else class="task-row-two">
+          <q-input v-show="task.edit" filled v-model="newTitle" type="text" placeholder="Edit task" @click.stop
+            lazy-rules :rules="[
+              (val) => (val && val.length > 0) || 'Please enter a task',
+            ]" />
+          <q-btn class="link cancel-safe-buttons" v-show="task.edit" @click.stop="task.edit = !task.edit" round dense
+            flat icon="close" color="red-10" aria-label="cancel-edit-task-button" />
+          <q-btn class="link  cancel-safe-buttons" v-show="task.edit" @click.stop="editTaskTitle(task)" round dense flat
+            icon="check" color="green-10" aria-label="save-edit-task-button" />
+        </div>
       </q-item>
+
     </q-list>
     <div v-if="!tasks.length" class="no-tasks absolute-center">
       <q-icon name="check" size="100px" color="blue-10" />
@@ -54,7 +72,7 @@ const $q = useQuasar();
 
 
 const title = ref("");
-
+const newTitle = ref('')
 const userStore = useUserStore()
 const taskStore = useTaskStore()
 const { user } = storeToRefs(userStore)
@@ -140,9 +158,86 @@ const taskIsCompleteTwice = (task) => {
   taskIsComplete(task);
   taskIsComplete(task);
 }
+
+const editTaskTitle = async (task) => {
+
+  task.title = newTitle.value
+  try {
+    await taskStore.updateData(newTitle.value, task.id)
+
+    await taskStore.fetchTasks(id);
+
+    $q.notify({
+      color: "green-5",
+      textColor: "white",
+      icon: "cloud_done",
+      message: "task updated.",
+    });
+  } catch (error) {
+    $q.notify({
+      color: "red-5",
+      textColor: "white",
+      icon: "error",
+      message: "error updating task.",
+    });
+  }
+}
+
+
+
+
+// const modifyTask = async (id, newTitle) => {
+//   try {
+//     if (newTitle) {
+//       await taskStore.editTask(id, newTitle)
+//       newTitle = ''
+//       if (errorMsg.value != null) {
+//         //Display error
+//         showError.value = true
+//       }
+//       else {
+//         //Redirect to dashboard after successful edit
+//         router.push({ path: '/dashboard' })
+//       }
+//     }
+//     else {
+//       // errorMsg.value = "Oops! Something went wrong, please try again. "
+//       // showError.value = true
+//       console.log("Oops! Something went wrong, please try again. ")
+//     }
+//   } catch (e) {
+//     $q.notify({
+//       color: "red-5",
+//       textColor: "white",
+//       icon: "error",
+//       message: "error updating task.",
+//     });
+//   }
+// }
+
+
+
 </script>
 
 <style scoped>
+.task-row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.task-row-two {
+
+  width: 100%;
+  justify-content: space-between;
+
+}
+
+.cancel-safe-buttons {
+  padding: 0 12px 10px 10px;
+}
+
 .top-space {
   height: 150px;
 }
