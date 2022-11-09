@@ -27,30 +27,28 @@
       <div>
         <div v-if="!editData" class="bg-blue-grey-1">
           <p class="user-data-input">
-            <b class="name-tag">{{ user.user_metadata.first_name }}</b>
+            <b class="name-tag"> <span class="text-blue-grey-7 name-input">Name: </span> {{
+                user.user_metadata.first_name
+            }}</b>
             <q-input v-show="editData" filled v-model="name" label="Your name" lazy-rules :rules="[
               (val) => (val && val.length > 0) || 'Please enter your name',
             ]" />
-            <!-- <q-btn class="link" v-show="!editData" @click="editData = !editData" color="blue-grey-8" round dense flat
-              icon="edit" /> -->
           </p>
           <p class="user-data-input">
-            <b>{{ user.user_metadata.last_name }}</b>
+            <b><span class="text-blue-grey-7 surname-input">Surname: </span> {{ user.user_metadata.last_name }}</b>
             <q-input v-show="editData" filled v-model="surname" label="Your surname" lazy-rules :rules="[
               (val) => (val && val.length > 0) || 'Please enter your surname',
             ]" />
 
           </p>
           <p class="user-data-input">
-            <b>{{ user.email }}</b>
-            <!-- <q-btn class="link" @click="changeEmail" round dense flat icon="edit" /> -->
+            <b><span class="text-blue-grey-7 e-mail-input">e-mail: </span> {{ user.email }}</b>
             <q-btn class="link" v-show="!editData" @click="editData = !editData" color="blue-grey-8" round dense flat
               icon="edit" />
           </p>
         </div>
 
         <div v-else>
-
           <p class="user-data-input-open">
             <q-input v-show="editData" filled v-model="name" label="Your name" lazy-rules :rules="[
               (val) => (val && val.length > 0) || 'Please enter your name',
@@ -64,22 +62,16 @@
             <q-btn class="link" v-show="!editData" @click="editData = !editData" round dense flat icon="edit" />
 
           </p>
-          <!-- <p>
-              <b>{{ user.email }}</b>
-              <q-btn class="link" @click="changeEmail" round dense flat icon="edit" />
-            </p> -->
+          <p class="user-data-input-open">
+            <q-input v-show="editData" filled v-model="email" label="Your e-mail" lazy-rules :rules="[
+              (val) => (val && val.length > 0) || 'Please enter your e-mail',
+            ]" />
+            <q-btn class="link" v-show="!editData" @click="editData = !editData" round dense flat icon="edit" />
+          </p>
           <q-btn class="link inline-blocks" v-show="editData" @click="editData = !editData" color="red-6" round dense
             flat icon="cancel" />
           <q-btn class="link inline-blocks q-ml-lg " v-show="editData" @click="updateData" color="green-6" round dense
             flat icon="check" />
-
-          <!-- <p>
-          <b class="name-tag">{{ user.user_metadata.first_name }}</b>
-          <q-input v-show="editData" filled v-model="name" lazy-rules :rules="[
-            (val) => (val && val.length > 0) || 'Please enter your name',
-          ]" />
-
-        </p> -->
         </div>
       </div>
     </div>
@@ -107,6 +99,7 @@ const router = useRouter();
 const avatarImg = ref("");
 const name = ref($userStore.user.user_metadata.first_name);
 const surname = ref($userStore.user.user_metadata.last_name);
+const email = ref($userStore.user.email);
 const editData = ref(false);
 const img = ref("");
 const editAvatar = ref(false);
@@ -114,18 +107,20 @@ const editAvatar = ref(false);
 
 
 const updateData = async () => {
-  if (!name.value || !surname.value) {
-    $q.notify({
-      color: "red-9",
-      textColor: "white",
-      icon: "warning",
-      message: "Fill all inputs",
-    });
-    return;
-  }
+  // if (!name.value || !surname.value) {
+  //   $q.notify({
+  //     color: "red-9",
+  //     textColor: "white",
+  //     icon: "warning",
+  //     message: "Fill all inputs",
+  //   });
+  //   return;
+  // }
   const data = {
     first_name: name.value,
     last_name: surname.value,
+    email: email.value,
+
   };
 
   $userStore
@@ -181,16 +176,12 @@ const updateAvatar = () => {
 }
 
 .edit-btn {
-  width: 150px;
+  margin-left: 60px;
 }
-
-
-
 
 .user-data-input-open {
   display: flex;
   flex-direction: column;
-
   justify-content: space-between;
 }
 
@@ -206,10 +197,21 @@ b {
 
 .user-data-input {
   display: flex;
-  /* flex-direction: column; */
   align-items: center;
   justify-content: space-between;
 
 
+}
+
+.name-input {
+  margin-right: 40px;
+}
+
+.surname-input {
+  margin-right: 20px;
+}
+
+.e-mail-input {
+  margin-right: 38px;
 }
 </style>
