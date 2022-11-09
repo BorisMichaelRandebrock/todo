@@ -70,5 +70,32 @@ export const useTaskStore = defineStore("tasks", {
         });
       }
     },
+
+    async updateTaskTitle(id, title) {
+      try {
+        const { data, error } = await supabase
+
+          .from("tasks")
+          .update({ title: title })
+          .eq("id", id)
+          .select("*");
+        if (error) throw error;
+      } catch (error) {
+        $q.notify({
+          message: error.message,
+          color: "negative",
+          position: "top",
+          icon: "report_problem",
+        });
+      }
+    },
+
+    async updateData(title, task_id) {
+      const { data, error } = await supabase
+        .from("tasks")
+        .update({ title: title })
+        .match({ id: task_id });
+      if (error) throw error;
+    },
   },
 });

@@ -15,35 +15,71 @@
             <q-icon name="cloud_upload" />
           </template>
         </q-file>
-        <div class="q-mt-sm cancel-safe-area">
-          <q-btn class="link edit-btn" v-show="!editAvatar" @click="editAvatar = !editAvatar" color="purple-6" glossy=""
-            label="Edit" aria-label="edit-avatar-button" />
-          <q-btn class="link inline-blocks cancel-safe-buttons" v-show="editAvatar" @click="editAvatar = !editAvatar"
-            color="red-6" glossy="" label="Cancel" />
-          <q-btn class="link inline-blocks q-ml-lg cancel-safe-buttons" v-show="editAvatar" @click="updateAvatar"
-            color="green-6" glossy="" label="Save" />
+        <div class="q-mt-sm">
+          <q-btn class="link edit-btn" v-show="!editAvatar" @click="editAvatar = !editAvatar" round dense flat
+            icon="edit" aria-label="edit-avatar-button" />
+          <q-btn class="link inline-blocks" v-show="editAvatar" @click="editAvatar = !editAvatar" color="red-6" round
+            dense flat icon="cancel" />
+          <q-btn class="link inline-blocks q-ml-lg" v-show="editAvatar" @click="updateAvatar" color="green-6" round
+            dense flat icon="check" />
         </div>
       </div>
       <div>
-        <p>
-          Name: <b class="name-tag">{{ user.user_metadata.first_name }}</b>
-          <q-input v-show="editData" filled v-model="name" label="Your name" lazy-rules :rules="[
+        <div v-if="!editData" class="bg-blue-grey-1">
+          <p class="user-data-input">
+            <b class="name-tag">{{ user.user_metadata.first_name }}</b>
+            <q-input v-show="editData" filled v-model="name" label="Your name" lazy-rules :rules="[
+              (val) => (val && val.length > 0) || 'Please enter your name',
+            ]" />
+            <!-- <q-btn class="link" v-show="!editData" @click="editData = !editData" color="blue-grey-8" round dense flat
+              icon="edit" /> -->
+          </p>
+          <p class="user-data-input">
+            <b>{{ user.user_metadata.last_name }}</b>
+            <q-input v-show="editData" filled v-model="surname" label="Your surname" lazy-rules :rules="[
+              (val) => (val && val.length > 0) || 'Please enter your surname',
+            ]" />
+
+          </p>
+          <p class="user-data-input">
+            <b>{{ user.email }}</b>
+            <!-- <q-btn class="link" @click="changeEmail" round dense flat icon="edit" /> -->
+            <q-btn class="link" v-show="!editData" @click="editData = !editData" color="blue-grey-8" round dense flat
+              icon="edit" />
+          </p>
+        </div>
+
+        <div v-else>
+
+          <p class="user-data-input-open">
+            <q-input v-show="editData" filled v-model="name" label="Your name" lazy-rules :rules="[
+              (val) => (val && val.length > 0) || 'Please enter your name',
+            ]" />
+            <q-btn class="link" v-show="!editData" @click="editData = !editData" round dense flat icon="edit" />
+          </p>
+          <p class="user-data-input-open">
+            <q-input v-show="editData" filled v-model="surname" label="Your surname" lazy-rules :rules="[
+              (val) => (val && val.length > 0) || 'Please enter your surname',
+            ]" />
+            <q-btn class="link" v-show="!editData" @click="editData = !editData" round dense flat icon="edit" />
+
+          </p>
+          <!-- <p>
+              <b>{{ user.email }}</b>
+              <q-btn class="link" @click="changeEmail" round dense flat icon="edit" />
+            </p> -->
+          <q-btn class="link inline-blocks" v-show="editData" @click="editData = !editData" color="red-6" round dense
+            flat icon="cancel" />
+          <q-btn class="link inline-blocks q-ml-lg " v-show="editData" @click="updateData" color="green-6" round dense
+            flat icon="check" />
+
+          <!-- <p>
+          <b class="name-tag">{{ user.user_metadata.first_name }}</b>
+          <q-input v-show="editData" filled v-model="name" lazy-rules :rules="[
             (val) => (val && val.length > 0) || 'Please enter your name',
           ]" />
-        </p>
-        <p>
-          Surname: <b>{{ user.user_metadata.last_name }}</b>
-          <q-input v-show="editData" filled v-model="surname" label="Your surname" lazy-rules :rules="[
-            (val) => (val && val.length > 0) || 'Please enter your surname',
-          ]" />
-        </p>
-        <div class="cancel-safe-area-two">
-          <q-btn class="link edit-btn" v-show="!editData" @click="editData = !editData" color="purple-6" glossy=""
-            label="Edit" aria-label="edit-userData-button" />
-          <q-btn class="link inline-blocks cancel-safe-buttons" v-show="editData" @click="editData = !editData"
-            color="red-6" glossy="" label="Cancel" />
-          <q-btn class="link inline-blocks q-ml-lg cancel-safe-buttons" v-show="editData" @click="updateData"
-            color="green-6" glossy="" label="Save" />
+
+        </p> -->
         </div>
       </div>
     </div>
@@ -148,49 +184,32 @@ const updateAvatar = () => {
   width: 150px;
 }
 
-.cancel-safe-buttons {
-  width: 150px;
-}
 
-.cancel-safe-area {
+
+
+.user-data-input-open {
   display: flex;
+  flex-direction: column;
+
   justify-content: space-between;
 }
 
-.cancel-safe-area-two {
-  display: flex;
-  justify-content: flex-end;
-  padding: 0px 15px;
-}
-
-.profile-page {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  align-content: stretch;
-  justify-content: center;
-}
-
-.profile-page-content {
-  width: -webkit-fill-available;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
 .user-image-avatar {
   padding: 0px 23px;
 }
 
-p {
-  margin: 0 15px 16px;
-}
-
-.name-tag {
-  padding-left: 22px;
-}
 
 b {
   padding-left: 5px;
+}
+
+.user-data-input {
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: space-between;
+
+
 }
 </style>
