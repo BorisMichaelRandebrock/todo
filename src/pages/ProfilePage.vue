@@ -5,7 +5,7 @@
       <div class="q-mb-xl">
         <q-avatar size="100px" class="q-mb-sm user-image-avatar">
           <img v-if="user.user_metadata.image" :src="
-            'https://xjwouybdvmgnqzlrqahh.supabase.co/storage/v1/object/public/' +
+            'https://app.supabase.com/project/xjwouybdvmgnqzlrqahh/storage/buckets/avatar' +
             user.user_metadata.image
           " />
           <img v-else src="/boy-avatar.png" />
