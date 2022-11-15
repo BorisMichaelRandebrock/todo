@@ -1,6 +1,7 @@
 # to-do list
 
 ## About the Project
+<img src="/public/todo-simulation.gif" width="250" align="right" alt="simulation of todo app"/>
 
 This to-do list is a simple, yet useful tool for the users task-management.
 
@@ -8,7 +9,6 @@ Several users can use the same app, but each user has his own, private tasks and
 
 The app is a CRUD, fully responsive SPA for desktop and mobile devices.
 
-<img src="/public/todo-simulation.gif" width="250" alt="simulation of todo app"/>
 
 
 https://worlds-best-to-do-list.netlify.app/home
