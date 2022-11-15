@@ -7,6 +7,9 @@ This to-do list is a simple, yet useful tool for the users task-management.
 Several users can use the same app, but each user has his own, private tasks and can only create, see, mark as done/undone & delete his own tasks through the supabase data-management setup.
 
 The app is a CRUD, fully responsive SPA for desktop and mobile devices.
+
+<img src="/public/todo-simulation.gif" width="250"/>
+
 ![Alt text](/public/todo-simulation.gif)
 https://worlds-best-to-do-list.netlify.app/home
 
