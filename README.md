@@ -8,9 +8,9 @@ Several users can use the same app, but each user has his own, private tasks and
 
 The app is a CRUD, fully responsive SPA for desktop and mobile devices.
 
-<img src="/public/todo-simulation.gif" width="250"/>
+<img src="/public/todo-simulation.gif" width="250" alt="simulation of todo app/>
 
-![Alt text](/public/todo-simulation.gif)
+
 https://worlds-best-to-do-list.netlify.app/home
 
 ## Project technologies
@@ -123,3 +123,5 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+<-- ![Alt text](/public/todo-simulation.gif) -->
