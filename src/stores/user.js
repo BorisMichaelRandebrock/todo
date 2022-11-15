@@ -80,9 +80,13 @@ export const useUserStore = defineStore("user", {
     },
 
     async updateAvatar(avatarImg) {
+      // const avatarFile = event.target.files[0];
       const { data, error } = await supabase.storage
         .from("avatar")
+        // .upload("public/avatar1.png", avatarFile);
         .upload("public/" + this.user.id + Date.now() + ".jpg", avatarImg);
+      // const { data, error } = await supabase.storage
+      //   .from("avatar")
       if (error) throw error;
       if (data) return data;
     },
