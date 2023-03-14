@@ -43,7 +43,7 @@ onMounted(async () => {
 let previousTitle = document.title;
 
 window.addEventListener("blur", () => {
-  document.title = "😮 u got nothing else to-do? 🤔";
+  document.title = "😮 nothing to-do? 🤔";
 })
 
 window.addEventListener("focus", () => {
